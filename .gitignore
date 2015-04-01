@@ -41,3 +41,20 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+*.mexw64
+code/ELT_simulink/slprj/_sfprj/case2mod_new/SimpleModeling/sfun/info/binfo.mat
+*.c
+*.h
+*.obj
+*.bat
+*.def
+*.lib
+*.lmk
+*.lmko
+*.exp
+*.map
+code/ELT_simulink/slprj/_sfprj/case2mod_new/_self/sfun/src/rtwtypeschksum.mat
+code/ELT_simulink/slprj/_sfprj/case2mod_new/SimpleModeling/sfun/src/rtwtypeschksum.mat
+code/ELT_simulink/slprj/_sfprj/case2mod_new/_self/sfun/info/chart7_zHa8gXAiJoutUGnyluwjhE.mat
+code/ELT_simulink/slprj/_sfprj/case2mod_new/_self/sfun/info/chart1_zHa8gXAiJoutUGnyluwjhE.mat
+code/ELT_simulink/slprj/_sfprj/case2mod_new/_self/sfun/info/binfo.mat
