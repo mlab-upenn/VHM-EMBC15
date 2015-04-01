@@ -1,51 +1,51 @@
 Model {
   Name			  "case2mod_new"
-  Version		  8.4
+  Version		  8.1
   MdlSubVersion		  0
-  SavedCharacterEncoding  "windows-1252"
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    7
     Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
       Name		      "NA1Out"
-      BusObject		      ""
-      BusOutputAsStruct	      "off"
     }
     Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
       Name		      "NA2Out"
-      BusObject		      ""
-      BusOutputAsStruct	      "off"
     }
     Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
       Name		      "NA3Out"
-      BusObject		      ""
-      BusOutputAsStruct	      "off"
     }
     Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
       Name		      "NA4Out"
-      BusObject		      ""
-      BusOutputAsStruct	      "off"
     }
     Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
       Name		      "NA5Out"
-      BusObject		      ""
-      BusOutputAsStruct	      "off"
     }
     Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
       Name		      "NA6Out"
-      BusObject		      ""
-      BusOutputAsStruct	      "off"
     }
     Outport {
-      Name		      "NA7Out"
       BusObject		      ""
       BusOutputAsStruct	      "off"
+      Name		      "NA7Out"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.8"
+    ComputedModelVersion    "1.7"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
+  SavedCharacterEncoding  "ISO-8859-1"
   slprops.hdlmdlprops {
     $PropName		    "HDLParams"
     $ObjectID		    1
@@ -61,6 +61,7 @@ Model {
       PropName		      "mdlProps"
     }
   }
+  SaveDefaultBlockParams  on
   ScopeRefreshTime	  0.035000
   OverrideScopeRefreshTime on
   DisableAllScopes	  off
@@ -79,7 +80,7 @@ Model {
       $ObjectID		      3
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [-8.0, -8.0, 1696.0, 1026.0]
+      Location		      [52.0, 22.0, 1280.0, 693.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		4
@@ -88,7 +89,7 @@ Model {
 	DockPosition		"Left"
 	Width			[50]
 	Height			[50]
-	Filter			[59]
+	Filter			[14]
       }
       Object {
 	$PropName		"ExplorerBarInfo"
@@ -96,29 +97,19 @@ Model {
 	$ClassName		"Simulink.ExplorerBarInfo"
 	Visible			[1]
       }
-      Object {
-	$PropName		"EditorsInfo"
-	$ObjectID		6
-	$ClassName		"Simulink.EditorInfo"
-	IsActive		[1]
-	ViewObjType		"SimulinkTopLevel"
-	LoadSaveID		"0"
-	Extents			[1646.0, 852.0]
-	ZoomFactor		[1.0]
-	Offset			[0.0, 0.0]
-      }
+      EditorsInfo	      []
     }
   }
   Created		  "Sun Apr 15 14:27:05 2012"
   Creator		  "iris"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "Zhihao"
+  LastModifiedBy	  "zhihao"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Apr 01 19:56:03 2015"
-  RTWModifiedTimeStamp	  349818878
-  ModelVersionFormat	  "1.%<AutoIncrement:8>"
-  ConfigurationManager	  "none"
+  LastModifiedDate	  "Thu Nov 07 11:17:13 2013"
+  RTWModifiedTimeStamp	  305675526
+  ModelVersionFormat	  "1.%<AutoIncrement:7>"
+  ConfigurationManager	  "None"
   SampleTimeColors	  on
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -135,20 +126,14 @@ Model {
   SortedOrder		  off
   ExecutionContextIcon	  off
   ShowLinearizationAnnotations on
-  ShowMarkup		  on
   BlockNameDataTip	  off
   BlockParametersDataTip  off
   BlockDescriptionStringDataTip	off
   ToolBar		  on
   StatusBar		  on
-  BrowserShowLibraryLinks on
-  BrowserLookUnderMasks	  on
+  BrowserShowLibraryLinks off
+  BrowserLookUnderMasks	  off
   SimulationMode	  "normal"
-  PauseTimes		  "5"
-  NumberOfSteps		  1
-  SnapshotBufferSize	  10
-  SnapshotInterval	  10
-  NumberOfLastSnapshots	  0
   LinearizationMsg	  "none"
   Profile		  off
   ParamWorkspaceSource	  "MATLABWorkspace"
@@ -158,7 +143,7 @@ Model {
   TryForcingSFcnDF	  off
   Object {
     $PropName		    "DataLoggingOverride"
-    $ObjectID		    7
+    $ObjectID		    6
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "case2mod_new_scope"
     signals_		    []
@@ -183,7 +168,6 @@ Model {
   CovNameIncrementing	  off
   CovHtmlReporting	  on
   CovForceBlockReductionOff on
-  CovEnableCumulative	  on
   covSaveCumulativeToWorkspaceVar on
   CovSaveSingleToWorkspaceVar on
   CovCumulativeVarName	  "covCumulativeData"
@@ -191,12 +175,6 @@ Model {
   CovReportOnPause	  on
   CovModelRefEnable	  "Off"
   CovExternalEMLEnable	  off
-  CovSFcnEnable		  off
-  CovBoundaryAbsTol	  0.000010
-  CovBoundaryRelTol	  0.010000
-  CovUseTimeInterval	  off
-  CovStartTime		  0
-  CovStopTime		  0
   ExtModeBatchMode	  off
   ExtModeEnableFloating	  on
   ExtModeTrigType	  "manual"
@@ -225,14 +203,14 @@ Model {
     Type		    "Handle"
     Dimension		    1
     Simulink.ConfigSet {
-      $ObjectID		      8
-      Version		      "1.14.3"
+      $ObjectID		      7
+      Version		      "1.13.0"
       Array {
 	Type			"Handle"
 	Dimension		9
 	Simulink.SolverCC {
-	  $ObjectID		  9
-	  Version		  "1.14.3"
+	  $ObjectID		  8
+	  Version		  "1.13.0"
 	  StartTime		  "0.0"
 	  StopTime		  "50000"
 	  AbsTol		  "auto"
@@ -266,8 +244,8 @@ Model {
 	  InsertRTBMode		  "Whenever possible"
 	}
 	Simulink.DataIOCC {
-	  $ObjectID		  10
-	  Version		  "1.14.3"
+	  $ObjectID		  9
+	  Version		  "1.13.0"
 	  Decimation		  "1"
 	  ExternalInput		  "[t, u]"
 	  FinalStateName	  "xFinal"
@@ -285,7 +263,6 @@ Model {
 	  SignalLogging		  off
 	  DSMLogging		  on
 	  InspectSignalLogs	  off
-	  VisualizeSimOutput	  on
 	  SaveTime		  off
 	  ReturnWorkspaceOutputs  off
 	  StateSaveName		  "xout"
@@ -299,8 +276,8 @@ Model {
 	  Refine		  "1"
 	}
 	Simulink.OptimizationCC {
-	  $ObjectID		  11
-	  Version		  "1.14.3"
+	  $ObjectID		  10
+	  Version		  "1.13.0"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    8
@@ -318,16 +295,13 @@ Model {
 	  BooleanDataType	  on
 	  ConditionallyExecuteInputs off
 	  InlineParams		  on
-	  UseDivisionForNetSlopeComputation "Off"
+	  UseIntDivNetSlope	  off
 	  UseFloatMulNetSlope	  off
-	  DefaultUnderspecifiedDataType	"double"
 	  UseSpecifiedMinMax	  off
 	  InlineInvariantSignals  off
 	  OptimizeBlockIOStorage  on
 	  BufferReuse		  on
 	  EnhancedBackFolding	  off
-	  CachingGlobalReferences off
-	  GlobalBufferReuse	  on
 	  StrengthReduction	  off
 	  ExpressionFolding	  on
 	  BooleansAsBitfields	  off
@@ -342,7 +316,6 @@ Model {
 	  SystemCodeInlineAuto	  off
 	  StateBitsets		  off
 	  DataBitsets		  off
-	  ActiveStateOutputEnumStorageType "Native Integer"
 	  UseTempVars		  off
 	  ZeroExternalMemoryAtStartup on
 	  ZeroInternalMemoryAtStartup on
@@ -359,8 +332,8 @@ Model {
 	  ParallelExecutionInRapidAccelerator on
 	}
 	Simulink.DebuggingCC {
-	  $ObjectID		  12
-	  Version		  "1.14.3"
+	  $ObjectID		  11
+	  Version		  "1.13.0"
 	  RTPrefix		  "error"
 	  ConsistencyChecking	  "none"
 	  ArrayBoundsChecking	  "none"
@@ -447,11 +420,10 @@ Model {
 	  SFUnconditionalTransitionShadowingDiag "warning"
 	  SFUndirectedBroadcastEventsDiag "warning"
 	  SFTransitionActionBeforeConditionDiag	"warning"
-	  IntegerSaturationMsg	  "warning"
 	}
 	Simulink.HardwareCC {
-	  $ObjectID		  13
-	  Version		  "1.14.3"
+	  $ObjectID		  12
+	  Version		  "1.13.0"
 	  ProdBitPerChar	  8
 	  ProdBitPerShort	  16
 	  ProdBitPerInt		  32
@@ -491,8 +463,8 @@ Model {
 	  ProdEqTarget		  off
 	}
 	Simulink.ModelReferenceCC {
-	  $ObjectID		  14
-	  Version		  "1.14.3"
+	  $ObjectID		  13
+	  Version		  "1.13.0"
 	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
 	  CheckModelReferenceTargetMessage "error"
 	  EnableParallelModelReferenceBuilds off
@@ -506,8 +478,8 @@ Model {
 	  SupportModelReferenceSimTargetCustomCode off
 	}
 	Simulink.SFSimCC {
-	  $ObjectID		  15
-	  Version		  "1.14.3"
+	  $ObjectID		  14
+	  Version		  "1.13.0"
 	  SFSimEnableDebug	  on
 	  SFSimOverflowDetection  on
 	  SFSimEcho		  on
@@ -518,12 +490,11 @@ Model {
 	  SimUseLocalCustomCode	  off
 	  SimParseCustomCode	  on
 	  SimBuildMode		  "sf_incremental_build"
-	  SimGenImportedTypeDefs  off
 	}
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
-	  $ObjectID		  16
-	  Version		  "1.14.3"
+	  $ObjectID		  15
+	  Version		  "1.13.0"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    8
@@ -538,15 +509,11 @@ Model {
 	    PropName		    "DisabledProps"
 	  }
 	  SystemTargetFile	  "grt.tlc"
-	  TLCOptions		  ""
 	  GenCodeOnly		  off
 	  MakeCommand		  "make_rtw"
 	  GenerateMakefile	  on
 	  PackageGeneratedCodeAndArtifacts off
-	  PackageName		  ""
 	  TemplateMakefile	  "grt_default_tmf"
-	  PostCodeGenCommand	  ""
-	  Description		  ""
 	  GenerateReport	  off
 	  SaveLog		  off
 	  RTWVerbose		  on
@@ -557,23 +524,13 @@ Model {
 	  TLCAssert		  off
 	  ProcessScriptMode	  "Default"
 	  ConfigurationMode	  "Optimized"
-	  ProcessScript		  ""
-	  ConfigurationScript	  ""
 	  ConfigAtBuild		  off
 	  RTWUseLocalCustomCode	  off
 	  RTWUseSimCustomCode	  off
-	  CustomSourceCode	  ""
-	  CustomHeaderCode	  ""
-	  CustomInclude		  ""
-	  CustomSource		  ""
-	  CustomLibrary		  ""
-	  CustomInitializer	  ""
-	  CustomTerminator	  ""
-	  Toolchain		  "Automatically locate an installed toolchain"
-	  BuildConfiguration	  "Faster Builds"
 	  IncludeHyperlinkInReport off
 	  LaunchReport		  off
 	  PortableWordSizes	  off
+	  GenerateErtSFunction	  off
 	  CreateSILPILBlock	  "None"
 	  CodeExecutionProfiling  off
 	  CodeExecutionProfileVariable "executionProfile"
@@ -593,17 +550,14 @@ Model {
 	  GenerateCodeMetricsReport off
 	  GenerateCodeReplacementReport	off
 	  RTWCompilerOptimization "Off"
-	  RTWCustomCompilerOptimizations ""
 	  CheckMdlBeforeBuild	  "Off"
 	  CustomRebuildMode	  "OnUpdate"
-	  DataInitializer	  ""
-	  SharedConstantsCachingThreshold 1024
 	  Array {
 	    Type		    "Handle"
 	    Dimension		    2
 	    Simulink.CodeAppCC {
-	      $ObjectID		      17
-	      Version		      "1.14.3"
+	      $ObjectID		      16
+	      Version		      "1.13.0"
 	      Array {
 		Type			"Cell"
 		Dimension		21
@@ -632,7 +586,6 @@ Model {
 	      }
 	      ForceParamTrailComments off
 	      GenerateComments	      on
-	      CommentStyle	      "Auto"
 	      IgnoreCustomStorageClasses on
 	      IgnoreTestpoints	      off
 	      IncHierarchyInIds	      off
@@ -655,7 +608,6 @@ Model {
 	      CustomSymbolStrBlkIO    "rtb_$N$M"
 	      CustomSymbolStrTmpVar   "$N$M"
 	      CustomSymbolStrMacro    "$R$N$M"
-	      CustomSymbolStrUtil     "$N$C"
 	      DefineNamingRule	      "None"
 	      ParamNamingRule	      "None"
 	      SignalNamingRule	      "None"
@@ -671,14 +623,14 @@ Model {
 	    }
 	    Simulink.GRTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
-	      $ObjectID		      18
-	      Version		      "1.14.3"
+	      $ObjectID		      17
+	      Version		      "1.13.0"
 	      Array {
 		Type			"Cell"
-		Dimension		15
+		Dimension		16
 		Cell			"GeneratePreprocessorConditionals"
 		Cell			"IncludeMdlTerminateFcn"
-		Cell			"GenerateAllocFcn"
+		Cell			"CombineOutputUpdateFcns"
 		Cell			"SuppressErrorStatus"
 		Cell			"ERTCustomFileBanners"
 		Cell			"GenerateSampleERTMain"
@@ -691,14 +643,13 @@ Model {
 		Cell			"SupportAbsoluteTime"
 		Cell			"SupportContinuousTime"
 		Cell			"SupportNonInlinedSFcns"
+		Cell			"GenerateAllocFcn"
 		PropName		"DisabledProps"
 	      }
 	      TargetFcnLib	      "ansi_tfl_table_tmw.mat"
 	      TargetLibSuffix	      ""
 	      TargetPreCompLibLocation ""
-	      GenFloatMathFcnCalls    "NOT IN USE"
-	      TargetLangStandard      "C89/C90 (ANSI)"
-	      CodeReplacementLibrary  "None"
+	      CodeReplacementLibrary  "ANSI_C"
 	      UtilityFuncGeneration   "Auto"
 	      ERTMultiwordTypeDef     "System defined"
 	      ERTMultiwordLength      256
@@ -706,6 +657,7 @@ Model {
 	      GenerateFullHeader      on
 	      GenerateSampleERTMain   off
 	      GenerateTestInterfaces  off
+	      IsPILTarget	      off
 	      ModelReferenceCompliant on
 	      ParMdlRefBuildCompliant on
 	      CompOptLevelCompliant   on
@@ -722,7 +674,6 @@ Model {
 	      LogVarNameModifier      "rt_"
 	      MatFileLogging	      on
 	      MultiInstanceERTCode    off
-	      CodeInterfacePackaging  "Nonreusable function"
 	      SupportNonFinite	      on
 	      SupportComplex	      on
 	      PurelyIntegerCode	      off
@@ -731,14 +682,12 @@ Model {
 	      SupportVariableSizeSignals off
 	      EnableShiftOperators    on
 	      ParenthesesLevel	      "Nominal"
-	      CastingMode	      "Nominal"
 	      MATLABClassNameForMDSCustomization "Simulink.SoftwareTarget.GRTCustomization"
 	      ModelStepFunctionPrototypeControlCompliant off
-	      CPPClassGenCompliant    on
+	      CPPClassGenCompliant    off
 	      AutosarCompliant	      off
 	      GRTInterface	      on
 	      GenerateAllocFcn	      off
-	      GenerateSharedConstants on
 	      UseMalloc		      off
 	      ExtMode		      off
 	      ExtModeStaticAlloc      off
@@ -752,14 +701,13 @@ Model {
 	      RTWCAPIStates	      off
 	      RTWCAPIRootIO	      off
 	      GenerateASAP2	      off
-	      MultiInstanceErrorCode  "Error"
 	    }
 	    PropName		    "Components"
 	  }
 	}
 	hdlcoderui.hdlcc {
-	  $ObjectID		  19
-	  Version		  "1.14.3"
+	  $ObjectID		  18
+	  Version		  "1.13.0"
 	  Description		  "HDL Coder custom configuration component"
 	  Name			  "HDL Coder"
 	  Array {
@@ -780,11 +728,11 @@ Model {
   }
   Simulink.ConfigSet {
     $PropName		    "ActiveConfigurationSet"
-    $ObjectID		    8
+    $ObjectID		    7
   }
   Object {
     $PropName		    "DataTransfer"
-    $ObjectID		    20
+    $ObjectID		    19
     $ClassName		    "Simulink.GlobalDataTransfer"
     DefaultTransitionBetweenSyncTasks "Ensure deterministic transfer (maximum delay)"
     DefaultTransitionBetweenAsyncTasks "Ensure data integrity only"
@@ -955,15 +903,11 @@ Model {
       Permissions	      "ReadWrite"
       PermitHierarchicalResolution "All"
       TreatAsAtomicUnit	      off
-      MinAlgLoopOccurrences   off
-      PropExecContextOutsideSubsystem off
       CheckFcnCallInpInsideContextMsg off
       SystemSampleTime	      "-1"
-      RTWSystemCode	      "Auto"
       RTWFcnNameOpts	      "Auto"
       RTWFileNameOpts	      "Auto"
       FunctionInterfaceSpec   "void_void"
-      FunctionWithSeparateData off
       RTWMemSecFuncInitTerm   "Inherit from model"
       RTWMemSecFuncExecute    "Inherit from model"
       RTWMemSecDataConstants  "Inherit from model"
@@ -973,12 +917,9 @@ Model {
       DataTypeOverride	      "UseLocalSettings"
       DataTypeOverrideAppliesTo	"AllNumericTypes"
       MinMaxOverflowLogging   "UseLocalSettings"
-      Opaque		      off
-      MaskHideContents	      off
       SFBlockType	      "NONE"
       Variant		      off
       GeneratePreprocessorConditionals off
-      ContentPreviewEnabled   off
     }
     Block {
       BlockType		      Terminator
@@ -986,8 +927,8 @@ Model {
   }
   System {
     Name		    "case2mod_new"
-    Location		    [-8, -8, 1688, 1018]
-    Open		    on
+    Location		    [128, 132, 1408, 825]
+    Open		    off
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
     ScreenColor		    "white"
@@ -1000,7 +941,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "201"
+    SIDHighWatermark	    "197"
     Block {
       BlockType		      Goto
       Name		      "AV_forw_inTag"
@@ -1051,7 +992,6 @@ Model {
       DataFormat	      "StructureWithTime"
       LimitDataPoints	      off
       SampleTime	      "0"
-      ScrollMode	      off
     }
     Block {
       BlockType		      Goto
@@ -1084,7 +1024,6 @@ Model {
       LibraryVersion	      "1.105"
       SourceBlock	      "SimpleModeling/NA_simple2"
       SourceType	      ""
-      ContentPreviewEnabled   off
       TERP_s_m		      "200"
       TERP_defs_m	      "200"
       TRRP_s_m		      "100"
@@ -1148,7 +1087,6 @@ Model {
       LibraryVersion	      "1.105"
       SourceBlock	      "SimpleModeling/NA_simple2"
       SourceType	      ""
-      ContentPreviewEnabled   off
       TERP_s_m		      "200"
       TERP_defs_m	      "200"
       TRRP_s_m		      "100"
@@ -1164,28 +1102,6 @@ Model {
       Ports		      [2, 1]
       Position		      [900, 227, 950, 278]
       ZOrder		      -12
-      Operator		      "OR"
-      AllPortsSameDT	      off
-      OutDataTypeStr	      "boolean"
-    }
-    Block {
-      BlockType		      Logic
-      Name		      "NA2_OR1"
-      SID		      "199"
-      Ports		      [2, 1]
-      Position		      [1205, 527, 1240, 563]
-      ZOrder		      2
-      Operator		      "OR"
-      AllPortsSameDT	      off
-      OutDataTypeStr	      "boolean"
-    }
-    Block {
-      BlockType		      Logic
-      Name		      "NA2_OR2"
-      SID		      "201"
-      Ports		      [2, 1]
-      Position		      [1190, 577, 1225, 613]
-      ZOrder		      4
       Operator		      "OR"
       AllPortsSameDT	      off
       OutDataTypeStr	      "boolean"
@@ -1258,7 +1174,6 @@ Model {
       LibraryVersion	      "1.105"
       SourceBlock	      "SimpleModeling/NA_simple2"
       SourceType	      ""
-      ContentPreviewEnabled   off
       TERP_s_m		      "250"
       TERP_defs_m	      "250"
       TRRP_s_m		      "100"
@@ -1323,7 +1238,6 @@ Model {
       LibraryVersion	      "1.105"
       SourceBlock	      "SimpleModeling/NA_simple2"
       SourceType	      ""
-      ContentPreviewEnabled   off
       TERP_s_m		      "250"
       TERP_defs_m	      "250"
       TRRP_s_m		      "100"
@@ -1399,7 +1313,6 @@ Model {
       LibraryVersion	      "1.105"
       SourceBlock	      "SimpleModeling/NA_simple2"
       SourceType	      ""
-      ContentPreviewEnabled   off
       TERP_s_m		      "250"
       TERP_defs_m	      "250"
       TRRP_s_m		      "100"
@@ -1486,7 +1399,6 @@ Model {
       LibraryVersion	      "1.105"
       SourceBlock	      "SimpleModeling/NA_simple2"
       SourceType	      ""
-      ContentPreviewEnabled   off
       TERP_s_m		      "150"
       TERP_defs_m	      "150"
       TRRP_s_m		      "100"
@@ -1562,7 +1474,6 @@ Model {
       LibraryVersion	      "1.105"
       SourceBlock	      "SimpleModeling/NA_simple2"
       SourceType	      ""
-      ContentPreviewEnabled   off
       TERP_s_m		      "150"
       TERP_defs_m	      "150"
       TRRP_s_m		      "100"
@@ -1675,7 +1586,7 @@ Model {
       BlockType		      From
       Name		      "Output8"
       SID		      "174"
-      Position		      [1105, 512, 1185, 528]
+      Position		      [1160, 537, 1240, 553]
       ZOrder		      -59
       ShowName		      off
       GotoTag		      "NA1_out"
@@ -1684,7 +1595,7 @@ Model {
       BlockType		      From
       Name		      "Output9"
       SID		      "175"
-      Position		      [1075, 612, 1155, 628]
+      Position		      [1160, 572, 1240, 588]
       ZOrder		      -60
       ShowName		      off
       GotoTag		      "NA3_out"
@@ -1708,7 +1619,6 @@ Model {
       LibraryVersion	      "1.105"
       SourceBlock	      "SimpleModeling/PA_simple2"
       SourceType	      ""
-      ContentPreviewEnabled   off
       min_path_par_m	      "10"
       bck_param_m	      "132"
     }
@@ -1813,7 +1723,6 @@ Model {
       LibraryVersion	      "1.105"
       SourceBlock	      "SimpleModeling/PA_simple2"
       SourceType	      ""
-      ContentPreviewEnabled   off
       min_path_par_m	      "90"
       bck_param_m	      "144"
     }
@@ -1899,7 +1808,6 @@ Model {
       LibraryVersion	      "1.105"
       SourceBlock	      "SimpleModeling/PA_simple2"
       SourceType	      ""
-      ContentPreviewEnabled   off
       min_path_par_m	      "10"
       bck_param_m	      "32767"
     }
@@ -1995,7 +1903,6 @@ Model {
       LibraryVersion	      "1.105"
       SourceBlock	      "SimpleModeling/PA_simple2"
       SourceType	      ""
-      ContentPreviewEnabled   off
       min_path_par_m	      "80"
       bck_param_m	      "16"
     }
@@ -2100,7 +2007,6 @@ Model {
       LibraryVersion	      "1.105"
       SourceBlock	      "SimpleModeling/PA_simple2"
       SourceType	      ""
-      ContentPreviewEnabled   off
       min_path_par_m	      "50"
       bck_param_m	      "20"
     }
@@ -2196,7 +2102,6 @@ Model {
       LibraryVersion	      "1.105"
       SourceBlock	      "SimpleModeling/PA_simple2"
       SourceType	      ""
-      ContentPreviewEnabled   off
       min_path_par_m	      "100"
       bck_param_m	      "36"
     }
@@ -2292,7 +2197,6 @@ Model {
       LibraryVersion	      "1.105"
       SourceBlock	      "SimpleModeling/PA_simple2"
       SourceType	      ""
-      ContentPreviewEnabled   off
       min_path_par_m	      "50"
       bck_param_m	      "38"
     }
@@ -2371,7 +2275,6 @@ Model {
       LibraryVersion	      "1.105"
       SourceBlock	      "SimpleModeling/PVC"
       SourceType	      "SubSystem"
-      ContentPreviewEnabled   off
     }
     Block {
       BlockType		      From
@@ -2418,15 +2321,6 @@ Model {
       GotoTag		      "PAC_out"
     }
     Block {
-      BlockType		      From
-      Name		      "PAC_tagIn1"
-      SID		      "198"
-      Position		      [1085, 537, 1185, 553]
-      ZOrder		      1
-      ShowName		      off
-      GotoTag		      "PAC_out"
-    }
-    Block {
       BlockType		      SubSystem
       Name		      "PAC_time"
       SID		      "191"
@@ -2436,7 +2330,13 @@ Model {
       ErrorFcn		      "Stateflow.Translate.translate"
       PermitHierarchicalResolution "ExplicitOnly"
       TreatAsAtomicUnit	      on
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
       RequestExecContextInheritance off
+      MaskHideContents	      off
       SFBlockType	      "MATLAB Function"
       System {
 	Name			"PAC_time"
@@ -2453,7 +2353,7 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	"32"
+	SIDHighWatermark	"29"
 	SIDPrevWatermark	"21"
 	Block {
 	  BlockType		  Inport
@@ -2466,20 +2366,20 @@ Model {
 	Block {
 	  BlockType		  Demux
 	  Name			  " Demux "
-	  SID			  "191::31"
+	  SID			  "191::28"
 	  Ports			  [1, 1]
 	  Position		  [270, 230, 320, 270]
-	  ZOrder		  5
+	  ZOrder		  2
 	  Outputs		  "1"
 	}
 	Block {
 	  BlockType		  S-Function
 	  Name			  " SFunction "
-	  SID			  "191::30"
+	  SID			  "191::27"
 	  Tag			  "Stateflow S-Function case2mod_new 7"
 	  Ports			  [1, 2]
 	  Position		  [180, 100, 230, 160]
-	  ZOrder		  4
+	  ZOrder		  1
 	  FunctionName		  "sf_sfun"
 	  PortCounts		  "[1 2]"
 	  EnableBusSupport	  on
@@ -2493,9 +2393,9 @@ Model {
 	Block {
 	  BlockType		  Terminator
 	  Name			  " Terminator "
-	  SID			  "191::32"
+	  SID			  "191::29"
 	  Position		  [460, 241, 480, 259]
-	  ZOrder		  6
+	  ZOrder		  3
 	}
 	Block {
 	  BlockType		  Outport
@@ -2506,7 +2406,6 @@ Model {
 	  IconDisplay		  "Port number"
 	}
 	Line {
-	  ZOrder		  5
 	  SrcBlock		  "t"
 	  SrcPort		  1
 	  DstBlock		  " SFunction "
@@ -2514,7 +2413,6 @@ Model {
 	}
 	Line {
 	  Name			  "y"
-	  ZOrder		  6
 	  Labels		  [0, 0]
 	  SrcBlock		  " SFunction "
 	  SrcPort		  2
@@ -2522,14 +2420,12 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  7
 	  SrcBlock		  " Demux "
 	  SrcPort		  1
 	  DstBlock		  " Terminator "
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  8
 	  SrcBlock		  " SFunction "
 	  SrcPort		  1
 	  DstBlock		  " Demux "
@@ -2548,7 +2444,6 @@ Model {
       LibraryVersion	      "1.105"
       SourceBlock	      "SimpleModeling/PVC"
       SourceType	      "SubSystem"
-      ContentPreviewEnabled   off
     }
     Block {
       BlockType		      From
@@ -2595,15 +2490,6 @@ Model {
       GotoTag		      "PVC_out"
     }
     Block {
-      BlockType		      From
-      Name		      "PVC_tagIn1"
-      SID		      "200"
-      Position		      [1075, 642, 1175, 658]
-      ZOrder		      3
-      ShowName		      off
-      GotoTag		      "PVC_out"
-    }
-    Block {
       BlockType		      SubSystem
       Name		      "PVC_time"
       SID		      "197"
@@ -2613,7 +2499,13 @@ Model {
       ErrorFcn		      "Stateflow.Translate.translate"
       PermitHierarchicalResolution "ExplicitOnly"
       TreatAsAtomicUnit	      on
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
       RequestExecContextInheritance off
+      MaskHideContents	      off
       SFBlockType	      "MATLAB Function"
       System {
 	Name			"PVC_time"
@@ -2630,7 +2522,7 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	"31"
+	SIDHighWatermark	"28"
 	SIDPrevWatermark	"21"
 	Block {
 	  BlockType		  Inport
@@ -2643,20 +2535,20 @@ Model {
 	Block {
 	  BlockType		  Demux
 	  Name			  " Demux "
-	  SID			  "197::30"
+	  SID			  "197::27"
 	  Ports			  [1, 1]
 	  Position		  [270, 230, 320, 270]
-	  ZOrder		  5
+	  ZOrder		  2
 	  Outputs		  "1"
 	}
 	Block {
 	  BlockType		  S-Function
 	  Name			  " SFunction "
-	  SID			  "197::29"
+	  SID			  "197::26"
 	  Tag			  "Stateflow S-Function case2mod_new 1"
 	  Ports			  [1, 2]
 	  Position		  [180, 100, 230, 160]
-	  ZOrder		  4
+	  ZOrder		  1
 	  FunctionName		  "sf_sfun"
 	  PortCounts		  "[1 2]"
 	  EnableBusSupport	  on
@@ -2670,9 +2562,9 @@ Model {
 	Block {
 	  BlockType		  Terminator
 	  Name			  " Terminator "
-	  SID			  "197::31"
+	  SID			  "197::28"
 	  Position		  [460, 241, 480, 259]
-	  ZOrder		  6
+	  ZOrder		  3
 	}
 	Block {
 	  BlockType		  Outport
@@ -2683,7 +2575,6 @@ Model {
 	  IconDisplay		  "Port number"
 	}
 	Line {
-	  ZOrder		  5
 	  SrcBlock		  "t"
 	  SrcPort		  1
 	  DstBlock		  " SFunction "
@@ -2691,7 +2582,6 @@ Model {
 	}
 	Line {
 	  Name			  "y"
-	  ZOrder		  6
 	  Labels		  [0, 0]
 	  SrcBlock		  " SFunction "
 	  SrcPort		  2
@@ -2699,14 +2589,12 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  7
 	  SrcBlock		  " Demux "
 	  SrcPort		  1
 	  DstBlock		  " Terminator "
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  8
 	  SrcBlock		  " SFunction "
 	  SrcPort		  1
 	  DstBlock		  " Demux "
@@ -2824,7 +2712,6 @@ Model {
       LibraryVersion	      "1.105"
       SourceBlock	      "SimpleModeling/pacemaker_DDD"
       SourceType	      ""
-      ContentPreviewEnabled   off
       LRI_def		      "10"
       AVI_def		      "150"
       ARP_def		      "10"
@@ -2935,784 +2822,672 @@ Model {
       IconDisplay	      "Port number"
     }
     Line {
-      ZOrder		      1
       SrcBlock		      "NA1_SA"
       SrcPort		      1
       DstBlock		      "NA1_out"
       DstPort		      1
     }
     Line {
-      ZOrder		      2
       SrcBlock		      "NA1_SA"
       SrcPort		      3
       DstBlock		      "NA1_pt"
       DstPort		      1
     }
     Line {
-      ZOrder		      3
       SrcBlock		      "NA1_in"
       SrcPort		      1
       DstBlock		      "NA1_SA"
       DstPort		      1
     }
     Line {
-      ZOrder		      4
       SrcBlock		      "NA1_tRest"
       SrcPort		      1
       DstBlock		      "NA1_SA"
       DstPort		      2
     }
     Line {
-      ZOrder		      5
       SrcBlock		      "NA1_OR"
       SrcPort		      1
       DstBlock		      "NA1"
       DstPort		      1
     }
     Line {
-      ZOrder		      6
       SrcBlock		      "PA1_1"
       SrcPort		      1
       DstBlock		      "NA1_OR"
       DstPort		      1
     }
     Line {
-      ZOrder		      7
       SrcBlock		      "PA3_1"
       SrcPort		      1
       DstBlock		      "NA1_OR"
       DstPort		      2
     }
     Line {
-      ZOrder		      8
       SrcBlock		      "PA4_1"
       SrcPort		      1
       DstBlock		      "NA1_OR"
       DstPort		      3
     }
     Line {
-      ZOrder		      9
       SrcBlock		      "a_pace_f"
       SrcPort		      1
       DstBlock		      "NA1_OR"
       DstPort		      4
     }
     Line {
-      ZOrder		      10
       SrcBlock		      "PAC_tagIn"
       SrcPort		      1
       DstBlock		      "NA1_OR"
       DstPort		      5
     }
     Line {
-      ZOrder		      11
       SrcBlock		      "NA2_AV"
       SrcPort		      1
       DstBlock		      "NA2_out"
       DstPort		      1
     }
     Line {
-      ZOrder		      12
       SrcBlock		      "NA2_AV"
       SrcPort		      3
       DstBlock		      "NA2_pt"
       DstPort		      1
     }
     Line {
-      ZOrder		      13
       SrcBlock		      "NA2_in"
       SrcPort		      1
       DstBlock		      "NA2_AV"
       DstPort		      1
     }
     Line {
-      ZOrder		      14
       SrcBlock		      "NA2_tRest"
       SrcPort		      1
       DstBlock		      "NA2_AV"
       DstPort		      2
     }
     Line {
-      ZOrder		      15
       SrcBlock		      "NA2_OR"
       SrcPort		      1
       DstBlock		      "NA2"
       DstPort		      1
     }
     Line {
-      ZOrder		      16
       SrcBlock		      "PA2_1"
       SrcPort		      1
       DstBlock		      "NA2_OR"
       DstPort		      1
     }
     Line {
-      ZOrder		      17
       SrcBlock		      "PA1_2"
       SrcPort		      1
       DstBlock		      "NA2_OR"
       DstPort		      2
     }
     Line {
-      ZOrder		      18
       SrcBlock		      "NA3_RV"
       SrcPort		      1
       DstBlock		      "NA3_out"
       DstPort		      1
     }
     Line {
-      ZOrder		      19
       SrcBlock		      "NA3_RV"
       SrcPort		      3
       DstBlock		      "NA3_pt"
       DstPort		      1
     }
     Line {
-      ZOrder		      20
       SrcBlock		      "NA3_in"
       SrcPort		      1
       DstBlock		      "NA3_RV"
       DstPort		      1
     }
     Line {
-      ZOrder		      21
       SrcBlock		      "NA3_tRest"
       SrcPort		      1
       DstBlock		      "NA3_RV"
       DstPort		      2
     }
     Line {
-      ZOrder		      22
       SrcBlock		      "NA3_OR"
       SrcPort		      1
       DstBlock		      "NA3"
       DstPort		      1
     }
     Line {
-      ZOrder		      23
       SrcBlock		      "PA2_2"
       SrcPort		      1
       DstBlock		      "NA3_OR"
       DstPort		      1
     }
     Line {
-      ZOrder		      24
       SrcBlock		      "v_pace_f"
       SrcPort		      1
       DstBlock		      "NA3_OR"
       DstPort		      2
     }
     Line {
-      ZOrder		      25
       SrcBlock		      "PVC_tagIn"
       SrcPort		      1
       DstBlock		      "NA3_OR"
       DstPort		      3
     }
     Line {
-      ZOrder		      26
       SrcBlock		      "NA4_F1"
       SrcPort		      1
       DstBlock		      "NA4_out"
       DstPort		      1
     }
     Line {
-      ZOrder		      27
       SrcBlock		      "NA4_F1"
       SrcPort		      3
       DstBlock		      "NA4_pt"
       DstPort		      1
     }
     Line {
-      ZOrder		      28
       SrcBlock		      "NA4_in"
       SrcPort		      1
       DstBlock		      "NA4_F1"
       DstPort		      1
     }
     Line {
-      ZOrder		      29
       SrcBlock		      "NA4_tRest"
       SrcPort		      1
       DstBlock		      "NA4_F1"
       DstPort		      2
     }
     Line {
-      ZOrder		      30
       SrcBlock		      "NA4_OR"
       SrcPort		      1
       DstBlock		      "NA4"
       DstPort		      1
     }
     Line {
-      ZOrder		      31
       SrcBlock		      "PA5_1"
       SrcPort		      1
       DstBlock		      "NA4_OR"
       DstPort		      1
     }
     Line {
-      ZOrder		      32
       SrcBlock		      "PA3_2"
       SrcPort		      1
       DstBlock		      "NA4_OR"
       DstPort		      2
     }
     Line {
-      ZOrder		      33
       SrcBlock		      "NA5_F2"
       SrcPort		      1
       DstBlock		      "NA5_out"
       DstPort		      1
     }
     Line {
-      ZOrder		      34
       SrcBlock		      "NA5_F2"
       SrcPort		      3
       DstBlock		      "NA5_pt"
       DstPort		      1
     }
     Line {
-      ZOrder		      35
       SrcBlock		      "NA5_in"
       SrcPort		      1
       DstBlock		      "NA5_F2"
       DstPort		      1
     }
     Line {
-      ZOrder		      36
       SrcBlock		      "NA5_tRest"
       SrcPort		      1
       DstBlock		      "NA5_F2"
       DstPort		      2
     }
     Line {
-      ZOrder		      37
       SrcBlock		      "NA5_OR"
       SrcPort		      1
       DstBlock		      "NA5"
       DstPort		      1
     }
     Line {
-      ZOrder		      38
       SrcBlock		      "PA7_1"
       SrcPort		      1
       DstBlock		      "NA5_OR"
       DstPort		      1
     }
     Line {
-      ZOrder		      39
       SrcBlock		      "PA5_2"
       SrcPort		      1
       DstBlock		      "NA5_OR"
       DstPort		      2
     }
     Line {
-      ZOrder		      40
       SrcBlock		      "NA6_S1"
       SrcPort		      1
       DstBlock		      "NA6_out"
       DstPort		      1
     }
     Line {
-      ZOrder		      41
       SrcBlock		      "NA6_S1"
       SrcPort		      3
       DstBlock		      "NA6_pt"
       DstPort		      1
     }
     Line {
-      ZOrder		      42
       SrcBlock		      "NA6_in"
       SrcPort		      1
       DstBlock		      "NA6_S1"
       DstPort		      1
     }
     Line {
-      ZOrder		      43
       SrcBlock		      "NA6_tRest"
       SrcPort		      1
       DstBlock		      "NA6_S1"
       DstPort		      2
     }
     Line {
-      ZOrder		      44
       SrcBlock		      "NA6_OR"
       SrcPort		      1
       DstBlock		      "NA6"
       DstPort		      1
     }
     Line {
-      ZOrder		      45
       SrcBlock		      "PA6_1"
       SrcPort		      1
       DstBlock		      "NA6_OR"
       DstPort		      1
     }
     Line {
-      ZOrder		      46
       SrcBlock		      "PA4_2"
       SrcPort		      1
       DstBlock		      "NA6_OR"
       DstPort		      2
     }
     Line {
-      ZOrder		      47
       SrcBlock		      "NA7_S2"
       SrcPort		      1
       DstBlock		      "NA7_out"
       DstPort		      1
     }
     Line {
-      ZOrder		      48
       SrcBlock		      "NA7_S2"
       SrcPort		      3
       DstBlock		      "NA7_pt"
       DstPort		      1
     }
     Line {
-      ZOrder		      49
       SrcBlock		      "NA7_in"
       SrcPort		      1
       DstBlock		      "NA7_S2"
       DstPort		      1
     }
     Line {
-      ZOrder		      50
       SrcBlock		      "NA7_tRest"
       SrcPort		      1
       DstBlock		      "NA7_S2"
       DstPort		      2
     }
     Line {
-      ZOrder		      51
       SrcBlock		      "NA7_OR"
       SrcPort		      1
       DstBlock		      "NA7"
       DstPort		      1
     }
     Line {
-      ZOrder		      52
       SrcBlock		      "PA6_2"
       SrcPort		      1
       DstBlock		      "NA7_OR"
       DstPort		      1
     }
     Line {
-      ZOrder		      53
       SrcBlock		      "PA7_2"
       SrcPort		      1
       DstBlock		      "NA7_OR"
       DstPort		      2
     }
     Line {
-      ZOrder		      54
       SrcBlock		      "PA1_1to2"
       SrcPort		      1
       DstBlock		      "PA1_out_1"
       DstPort		      1
     }
     Line {
-      ZOrder		      55
       SrcBlock		      "PA1_1to2"
       SrcPort		      2
       DstBlock		      "PA1_out_2"
       DstPort		      1
     }
     Line {
-      ZOrder		      56
       SrcBlock		      "PA1_in_1"
       SrcPort		      1
       DstBlock		      "PA1_1to2"
       DstPort		      1
     }
     Line {
-      ZOrder		      57
       SrcBlock		      "PA1_in_2"
       SrcPort		      1
       DstBlock		      "PA1_1to2"
       DstPort		      2
     }
     Line {
-      ZOrder		      58
       SrcBlock		      "PA1_in_3"
       SrcPort		      1
       DstBlock		      "PA1_1to2"
       DstPort		      3
     }
     Line {
-      ZOrder		      59
       SrcBlock		      "PA1_in_4"
       SrcPort		      1
       DstBlock		      "PA1_1to2"
       DstPort		      4
     }
     Line {
-      ZOrder		      60
       SrcBlock		      "PA1_forw"
       SrcPort		      1
       DstBlock		      "PA1_1to2"
       DstPort		      5
     }
     Line {
-      ZOrder		      61
       SrcBlock		      "PA2_2to3"
       SrcPort		      1
       DstBlock		      "PA2_out_1"
       DstPort		      1
     }
     Line {
-      ZOrder		      62
       SrcBlock		      "PA2_2to3"
       SrcPort		      2
       DstBlock		      "PA2_out_2"
       DstPort		      1
     }
     Line {
-      ZOrder		      63
       SrcBlock		      "PA2_in_1"
       SrcPort		      1
       DstBlock		      "PA2_2to3"
       DstPort		      1
     }
     Line {
-      ZOrder		      64
       SrcBlock		      "PA2_in_2"
       SrcPort		      1
       DstBlock		      "PA2_2to3"
       DstPort		      2
     }
     Line {
-      ZOrder		      65
       SrcBlock		      "PA2_in_3"
       SrcPort		      1
       DstBlock		      "PA2_2to3"
       DstPort		      3
     }
     Line {
-      ZOrder		      66
       SrcBlock		      "PA2_in_4"
       SrcPort		      1
       DstBlock		      "PA2_2to3"
       DstPort		      4
     }
     Line {
-      ZOrder		      67
       SrcBlock		      "PA2_forw"
       SrcPort		      1
       DstBlock		      "PA2_2to3"
       DstPort		      5
     }
     Line {
-      ZOrder		      68
       SrcBlock		      "PA3_1to4"
       SrcPort		      1
       DstBlock		      "PA3_out_1"
       DstPort		      1
     }
     Line {
-      ZOrder		      69
       SrcBlock		      "PA3_1to4"
       SrcPort		      2
       DstBlock		      "PA3_out_2"
       DstPort		      1
     }
     Line {
-      ZOrder		      70
       SrcBlock		      "PA3_in_1"
       SrcPort		      1
       DstBlock		      "PA3_1to4"
       DstPort		      1
     }
     Line {
-      ZOrder		      71
       SrcBlock		      "PA3_in_2"
       SrcPort		      1
       DstBlock		      "PA3_1to4"
       DstPort		      2
     }
     Line {
-      ZOrder		      72
       SrcBlock		      "PA3_in_3"
       SrcPort		      1
       DstBlock		      "PA3_1to4"
       DstPort		      3
     }
     Line {
-      ZOrder		      73
       SrcBlock		      "PA3_in_4"
       SrcPort		      1
       DstBlock		      "PA3_1to4"
       DstPort		      4
     }
     Line {
-      ZOrder		      74
       SrcBlock		      "PA3_forw"
       SrcPort		      1
       DstBlock		      "PA3_1to4"
       DstPort		      5
     }
     Line {
-      ZOrder		      75
       SrcBlock		      "PA4_1to6"
       SrcPort		      1
       DstBlock		      "PA4_out_1"
       DstPort		      1
     }
     Line {
-      ZOrder		      76
       SrcBlock		      "PA4_1to6"
       SrcPort		      2
       DstBlock		      "PA4_out_2"
       DstPort		      1
     }
     Line {
-      ZOrder		      77
       SrcBlock		      "PA4_in_1"
       SrcPort		      1
       DstBlock		      "PA4_1to6"
       DstPort		      1
     }
     Line {
-      ZOrder		      78
       SrcBlock		      "PA4_in_2"
       SrcPort		      1
       DstBlock		      "PA4_1to6"
       DstPort		      2
     }
     Line {
-      ZOrder		      79
       SrcBlock		      "PA4_in_3"
       SrcPort		      1
       DstBlock		      "PA4_1to6"
       DstPort		      3
     }
     Line {
-      ZOrder		      80
       SrcBlock		      "PA4_in_4"
       SrcPort		      1
       DstBlock		      "PA4_1to6"
       DstPort		      4
     }
     Line {
-      ZOrder		      81
       SrcBlock		      "PA4_forw"
       SrcPort		      1
       DstBlock		      "PA4_1to6"
       DstPort		      5
     }
     Line {
-      ZOrder		      82
       SrcBlock		      "PA5_4to5"
       SrcPort		      1
       DstBlock		      "PA5_out_1"
       DstPort		      1
     }
     Line {
-      ZOrder		      83
       SrcBlock		      "PA5_4to5"
       SrcPort		      2
       DstBlock		      "PA5_out_2"
       DstPort		      1
     }
     Line {
-      ZOrder		      84
       SrcBlock		      "PA5_in_1"
       SrcPort		      1
       DstBlock		      "PA5_4to5"
       DstPort		      1
     }
     Line {
-      ZOrder		      85
       SrcBlock		      "PA5_in_2"
       SrcPort		      1
       DstBlock		      "PA5_4to5"
       DstPort		      2
     }
     Line {
-      ZOrder		      86
       SrcBlock		      "PA5_in_3"
       SrcPort		      1
       DstBlock		      "PA5_4to5"
       DstPort		      3
     }
     Line {
-      ZOrder		      87
       SrcBlock		      "PA5_in_4"
       SrcPort		      1
       DstBlock		      "PA5_4to5"
       DstPort		      4
     }
     Line {
-      ZOrder		      88
       SrcBlock		      "PA5_forw"
       SrcPort		      1
       DstBlock		      "PA5_4to5"
       DstPort		      5
     }
     Line {
-      ZOrder		      89
       SrcBlock		      "PA6_6to7"
       SrcPort		      1
       DstBlock		      "PA6_out_1"
       DstPort		      1
     }
     Line {
-      ZOrder		      90
       SrcBlock		      "PA6_6to7"
       SrcPort		      2
       DstBlock		      "PA6_out_2"
       DstPort		      1
     }
     Line {
-      ZOrder		      91
       SrcBlock		      "PA6_in_1"
       SrcPort		      1
       DstBlock		      "PA6_6to7"
       DstPort		      1
     }
     Line {
-      ZOrder		      92
       SrcBlock		      "PA6_in_2"
       SrcPort		      1
       DstBlock		      "PA6_6to7"
       DstPort		      2
     }
     Line {
-      ZOrder		      93
       SrcBlock		      "PA6_in_3"
       SrcPort		      1
       DstBlock		      "PA6_6to7"
       DstPort		      3
     }
     Line {
-      ZOrder		      94
       SrcBlock		      "PA6_in_4"
       SrcPort		      1
       DstBlock		      "PA6_6to7"
       DstPort		      4
     }
     Line {
-      ZOrder		      95
       SrcBlock		      "PA6_forw"
       SrcPort		      1
       DstBlock		      "PA6_6to7"
       DstPort		      5
     }
     Line {
-      ZOrder		      96
       SrcBlock		      "PA7_5to7"
       SrcPort		      1
       DstBlock		      "PA7_out_1"
       DstPort		      1
     }
     Line {
-      ZOrder		      97
       SrcBlock		      "PA7_5to7"
       SrcPort		      2
       DstBlock		      "PA7_out_2"
       DstPort		      1
     }
     Line {
-      ZOrder		      98
       SrcBlock		      "PA7_in_1"
       SrcPort		      1
       DstBlock		      "PA7_5to7"
       DstPort		      1
     }
     Line {
-      ZOrder		      99
       SrcBlock		      "PA7_in_2"
       SrcPort		      1
       DstBlock		      "PA7_5to7"
       DstPort		      2
     }
     Line {
-      ZOrder		      100
       SrcBlock		      "PA7_in_3"
       SrcPort		      1
       DstBlock		      "PA7_5to7"
       DstPort		      3
     }
     Line {
-      ZOrder		      101
       SrcBlock		      "PA7_in_4"
       SrcPort		      1
       DstBlock		      "PA7_5to7"
       DstPort		      4
     }
     Line {
-      ZOrder		      102
       SrcBlock		      "PA7_forw"
       SrcPort		      1
       DstBlock		      "PA7_5to7"
       DstPort		      5
     }
     Line {
-      ZOrder		      103
       SrcBlock		      "Output1"
       SrcPort		      1
       DstBlock		      "NA1Out"
       DstPort		      1
     }
     Line {
-      ZOrder		      104
       SrcBlock		      "Output2"
       SrcPort		      1
       DstBlock		      "NA2Out"
       DstPort		      1
     }
     Line {
-      ZOrder		      105
       SrcBlock		      "Output3"
       SrcPort		      1
       DstBlock		      "NA3Out"
       DstPort		      1
     }
     Line {
-      ZOrder		      106
       SrcBlock		      "Output4"
       SrcPort		      1
       DstBlock		      "NA4Out"
       DstPort		      1
     }
     Line {
-      ZOrder		      107
       SrcBlock		      "Output5"
       SrcPort		      1
       DstBlock		      "NA5Out"
       DstPort		      1
     }
     Line {
-      ZOrder		      108
       SrcBlock		      "Output6"
       SrcPort		      1
       DstBlock		      "NA6Out"
       DstPort		      1
     }
     Line {
-      ZOrder		      109
       SrcBlock		      "Output7"
       SrcPort		      1
       DstBlock		      "NA7Out"
       DstPort		      1
     }
     Line {
-      ZOrder		      110
       SrcBlock		      "sa_rest_in"
       SrcPort		      1
       DstBlock		      "SA_rest_inTag"
       DstPort		      1
     }
     Line {
-      ZOrder		      111
       SrcBlock		      "av_forw_in"
       SrcPort		      1
       DstBlock		      "AV_forw_inTag"
       DstPort		      1
     }
     Line {
-      ZOrder		      112
       SrcBlock		      "ScopeOutput1"
       SrcPort		      1
       Points		      [0, 10]
@@ -3720,7 +3495,6 @@ Model {
       DstPort		      1
     }
     Line {
-      ZOrder		      113
       SrcBlock		      "ScopeOutput2"
       SrcPort		      1
       Points		      [0, 5]
@@ -3728,14 +3502,12 @@ Model {
       DstPort		      2
     }
     Line {
-      ZOrder		      114
       SrcBlock		      "ScopeOutput3"
       SrcPort		      1
       DstBlock		      "HeartScope"
       DstPort		      3
     }
     Line {
-      ZOrder		      115
       SrcBlock		      "ScopeOutput4"
       SrcPort		      1
       Points		      [0, -5]
@@ -3743,7 +3515,6 @@ Model {
       DstPort		      4
     }
     Line {
-      ZOrder		      116
       SrcBlock		      "ScopeOutput5"
       SrcPort		      1
       Points		      [0, -10]
@@ -3751,14 +3522,12 @@ Model {
       DstPort		      5
     }
     Line {
-      ZOrder		      117
       SrcBlock		      "ScopeOutput6"
       SrcPort		      1
       DstBlock		      "HeartScope"
       DstPort		      6
     }
     Line {
-      ZOrder		      118
       Labels		      [0, 0]
       SrcBlock		      "ScopeOutput7"
       SrcPort		      1
@@ -3766,19 +3535,28 @@ Model {
       DstPort		      7
     }
     Line {
+      SrcBlock		      "Output8"
+      SrcPort		      1
+      DstBlock		      "pacemaker_DDD"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Output9"
+      SrcPort		      1
+      DstBlock		      "pacemaker_DDD"
+      DstPort		      2
+    }
+    Line {
       Name		      "a_pace"
-      ZOrder		      121
       Labels		      [0, 0]
       SrcBlock		      "pacemaker_DDD"
       SrcPort		      1
       Points		      [135, 0]
       Branch {
-	ZOrder			122
 	DstBlock		"a_pace_inTag"
 	DstPort			1
       }
       Branch {
-	ZOrder			123
 	Labels			[1, 0]
 	Points			[0, -385]
 	DstBlock		"HeartScope"
@@ -3787,147 +3565,88 @@ Model {
     }
     Line {
       Name		      "v_pace"
-      ZOrder		      124
       Labels		      [0, 0]
       SrcBlock		      "pacemaker_DDD"
       SrcPort		      2
       Points		      [155, 0]
       Branch {
-	ZOrder			125
 	DstBlock		"v_pace_inTag"
 	DstPort			1
       }
       Branch {
-	ZOrder			126
 	Labels			[1, 1]
 	DstBlock		"HeartScope"
 	DstPort			9
       }
     }
     Line {
-      ZOrder		      127
       SrcBlock		      "PAC"
       SrcPort		      1
       DstBlock		      "PAC_outTag"
       DstPort		      1
     }
     Line {
-      ZOrder		      128
       SrcBlock		      "PAC_count"
       SrcPort		      1
       DstBlock		      "PAC"
       DstPort		      2
     }
     Line {
-      ZOrder		      129
       SrcBlock		      "PAC_actIn"
       SrcPort		      1
       DstBlock		      "PAC"
       DstPort		      3
     }
     Line {
-      ZOrder		      130
       SrcBlock		      "PVC"
       SrcPort		      1
       DstBlock		      "PVC_outTag"
       DstPort		      1
     }
     Line {
-      ZOrder		      131
       SrcBlock		      "PVC_count"
       SrcPort		      1
       DstBlock		      "PVC"
       DstPort		      2
     }
     Line {
-      ZOrder		      132
       SrcBlock		      "PVC_actIn"
       SrcPort		      1
       DstBlock		      "PVC"
       DstPort		      3
     }
     Line {
-      ZOrder		      133
       SrcBlock		      "PVC_time"
       SrcPort		      1
       DstBlock		      "PVC"
       DstPort		      1
     }
     Line {
-      ZOrder		      134
       SrcBlock		      "PAC_clk"
       SrcPort		      1
       DstBlock		      "PAC_time"
       DstPort		      1
     }
     Line {
-      ZOrder		      135
       SrcBlock		      "PAC_time"
       SrcPort		      1
       DstBlock		      "PAC"
       DstPort		      1
     }
     Line {
-      ZOrder		      136
       SrcBlock		      "PVC_clk"
       SrcPort		      1
       DstBlock		      "PVC_time"
       DstPort		      1
     }
-    Line {
-      ZOrder		      137
-      SrcBlock		      "Output8"
-      SrcPort		      1
-      Points		      [9, 0; 0, 15]
-      DstBlock		      "NA2_OR1"
-      DstPort		      1
-    }
-    Line {
-      ZOrder		      138
-      SrcBlock		      "PAC_tagIn1"
-      SrcPort		      1
-      Points		      [5, 0; 0, 10]
-      DstBlock		      "NA2_OR1"
-      DstPort		      2
-    }
-    Line {
-      ZOrder		      139
-      SrcBlock		      "NA2_OR1"
-      SrcPort		      1
-      DstBlock		      "pacemaker_DDD"
-      DstPort		      1
-    }
-    Line {
-      ZOrder		      140
-      SrcBlock		      "Output9"
-      SrcPort		      1
-      Points		      [1, 0; 0, -35]
-      DstBlock		      "NA2_OR2"
-      DstPort		      1
-    }
-    Line {
-      ZOrder		      141
-      SrcBlock		      "PVC_tagIn1"
-      SrcPort		      1
-      Points		      [1, 0; 0, -45]
-      DstBlock		      "NA2_OR2"
-      DstPort		      2
-    }
-    Line {
-      ZOrder		      142
-      SrcBlock		      "NA2_OR2"
-      SrcPort		      1
-      Points		      [13, 0; 0, -15]
-      DstBlock		      "pacemaker_DDD"
-      DstPort		      2
-    }
   }
 }
-#Finite State Machines
+# Finite State Machines
 #
-#   Stateflow 80000001
+#    Stateflow Version 7.6 (R2013a) dated Jan 19 2013, 14:18:25
 #
 #
+
 Stateflow {
   machine {
     id			    1
@@ -3938,7 +3657,7 @@ Stateflow {
     debug {
       runTimeCheck	      [0 0 0 0]
     }
-    sfVersion		    80000001
+    sfVersion		    76014001.0015
   }
   chart {
     id			    2
@@ -4031,7 +3750,7 @@ Stateflow {
   transition {
     id			    7
     labelString		    "{eML_blk_kernel();}"
-    labelPosition	    [28.125 13.875 102.544 14.964]
+    labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
     src {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
@@ -4149,7 +3868,7 @@ Stateflow {
   transition {
     id			    14
     labelString		    "{eML_blk_kernel();}"
-    labelPosition	    [28.125 13.875 102.544 14.964]
+    labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
     src {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
