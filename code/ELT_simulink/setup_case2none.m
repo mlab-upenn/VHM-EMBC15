@@ -1,11 +1,7 @@
-% clear all
-% % % close all
-% % clc
-% 
-% function [node_name,path_names,node_param,path_param,pacemaker_defaults]=setup_case2none
-%  load case2_brad_WB
-% % % % % % % % % % % % load pacemaker
-% % % % % % % % load type_1
+
+
+load(sprintf('%s.mat',sys_name));
+
 for i=1:size(node_table,1)
     node_name{i}=sprintf('NA%d_%s',i,node_table{i,1});
 end
