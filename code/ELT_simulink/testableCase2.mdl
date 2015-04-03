@@ -13,7 +13,7 @@ Model {
       Name		      "PVC_IN"
       BusObject		      ""
     }
-    NumRootOutports	    7
+    NumRootOutports	    9
     Outport {
       Name		      "NA1Out"
       BusObject		      ""
@@ -49,8 +49,19 @@ Model {
       BusObject		      ""
       BusOutputAsStruct	      "off"
     }
+    Outport {
+      Name		      "vpaceOut"
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      SignalName	      "v_pace"
+    }
+    Outport {
+      Name		      "PVC"
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+    }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.10"
+    ComputedModelVersion    "1.15"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -87,7 +98,7 @@ Model {
       $ObjectID		      3
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [-8.0, 22.0, 1280.0, 711.0]
+      Location		      [0.0, 22.0, 1280.0, 711.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		4
@@ -113,7 +124,7 @@ Model {
 	LoadSaveID		"0"
 	Extents			[1246.0, 538.0]
 	ZoomFactor		[1.0]
-	Offset			[189.50000000000023, 18.083333333333428]
+	Offset			[437.0, 307.0]
       }
     }
   }
@@ -123,9 +134,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "mlab"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Apr 02 19:09:30 2015"
-  RTWModifiedTimeStamp	  349902050
-  ModelVersionFormat	  "1.%<AutoIncrement:10>"
+  LastModifiedDate	  "Fri Apr 03 14:26:20 2015"
+  RTWModifiedTimeStamp	  349971973
+  ModelVersionFormat	  "1.%<AutoIncrement:15>"
   ConfigurationManager	  "none"
   SampleTimeColors	  on
   SampleTimeAnnotations	  off
@@ -848,6 +859,17 @@ Model {
       PreserveConstantTs      off
     }
     Block {
+      BlockType		      DataTypeConversion
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Inherit via back propagation"
+      LockScale		      off
+      ConvertRealWorld	      "Real World Value (RWV)"
+      RndMeth		      "Zero"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+    }
+    Block {
       BlockType		      From
       GotoTag		      "A"
       IconDisplay	      "Tag"
@@ -926,7 +948,7 @@ Model {
   }
   System {
     Name		    "testableCase2"
-    Location		    [-8, 22, 1272, 733]
+    Location		    [0, 22, 1280, 733]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -940,23 +962,25 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "203"
+    SIDHighWatermark	    "207"
     Block {
       BlockType		      Inport
       Name		      "PAC_IN"
       SID		      "202"
-      Position		      [1435, 658, 1465, 672]
+      Position		      [1250, 658, 1280, 672]
       ZOrder		      5
       IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
     }
     Block {
       BlockType		      Inport
       Name		      "PVC_IN"
       SID		      "203"
-      Position		      [1435, 783, 1465, 797]
+      Position		      [1250, 783, 1280, 797]
       ZOrder		      6
       Port		      "2"
       IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
     }
     Block {
       BlockType		      Goto
@@ -966,6 +990,16 @@ Model {
       ZOrder		      -1
       ShowName		      off
       GotoTag		      "AV_forw"
+    }
+    Block {
+      BlockType		      DataTypeConversion
+      Name		      "Data Type Conversion"
+      SID		      "207"
+      Position		      [1350, 713, 1425, 747]
+      ZOrder		      10
+      OutDataTypeStr	      "boolean"
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	off
     }
     Block {
       BlockType		      Scope
@@ -2474,7 +2508,7 @@ Model {
       Name		      "pacemaker_DDD"
       SID		      "184"
       Ports		      [2, 4]
-      Position		      [1260, 529, 1375, 596]
+      Position		      [1260, 531, 1400, 634]
       ZOrder		      -156
       NamePlacement	      "alternate"
       LibraryVersion	      "1.105"
@@ -2588,6 +2622,24 @@ Model {
       Position		      [1280, 352, 1310, 368]
       ZOrder		      -166
       Port		      "7"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "vpaceOut"
+      SID		      "204"
+      Position		      [1385, 303, 1415, 317]
+      ZOrder		      7
+      Port		      "8"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "PVC"
+      SID		      "205"
+      Position		      [1540, 723, 1570, 737]
+      ZOrder		      8
+      Port		      "9"
       IconDisplay	      "Port number"
     }
     Line {
@@ -3427,7 +3479,7 @@ Model {
       Labels		      [0, 0]
       SrcBlock		      "pacemaker_DDD"
       SrcPort		      1
-      Points		      [135, 0]
+      Points		      [110, 0; 0, -5]
       Branch {
 	ZOrder			122
 	DstBlock		"a_pace_inTag"
@@ -3447,7 +3499,7 @@ Model {
       Labels		      [0, 0]
       SrcBlock		      "pacemaker_DDD"
       SrcPort		      2
-      Points		      [155, 0]
+      Points		      [130, 0; 0, -15]
       Branch {
 	ZOrder			125
 	DstBlock		"v_pace_inTag"
@@ -3455,9 +3507,19 @@ Model {
       }
       Branch {
 	ZOrder			126
-	Labels			[1, 1]
-	DstBlock		"HeartScope"
-	DstPort			9
+	Points			[0, -152]
+	Branch {
+	  ZOrder		  149
+	  Points		  [-165, 0]
+	  DstBlock		  "vpaceOut"
+	  DstPort		  1
+	}
+	Branch {
+	  ZOrder		  148
+	  Labels		  [1, 1]
+	  DstBlock		  "HeartScope"
+	  DstPort		  9
+	}
       }
     }
     Line {
@@ -3480,6 +3542,7 @@ Model {
       ZOrder		      139
       SrcBlock		      "NA2_OR1"
       SrcPort		      1
+      Points		      [5, 0; 0, 15]
       DstBlock		      "pacemaker_DDD"
       DstPort		      1
     }
@@ -3503,7 +3566,7 @@ Model {
       ZOrder		      142
       SrcBlock		      "NA2_OR2"
       SrcPort		      1
-      Points		      [13, 0; 0, -15]
+      Points		      [13, 0; 0, 15]
       DstBlock		      "pacemaker_DDD"
       DstPort		      2
     }
@@ -3518,7 +3581,24 @@ Model {
       ZOrder		      147
       SrcBlock		      "PVC_IN"
       SrcPort		      1
-      DstBlock		      "PVC_outTag"
+      Points		      [40, 0]
+      Branch {
+	ZOrder			162
+	Points			[0, -60]
+	DstBlock		"Data Type Conversion"
+	DstPort			1
+      }
+      Branch {
+	ZOrder			161
+	DstBlock		"PVC_outTag"
+	DstPort			1
+      }
+    }
+    Line {
+      ZOrder		      163
+      SrcBlock		      "Data Type Conversion"
+      SrcPort		      1
+      DstBlock		      "PVC"
       DstPort		      1
     }
   }

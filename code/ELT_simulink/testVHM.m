@@ -55,7 +55,7 @@ setup_case2none;
 
 disp(' ')
 disp('The constraints on the initial conditions:')
-init_cond = [0, 1; 0, 1] %#ok<*NOPTS>
+init_cond = [] %#ok<*NOPTS>
 
 disp(' ')
 disp('The constraints on the input signals PVC and PAC defined as a hypercube:')
@@ -69,19 +69,20 @@ nb_pulses = cp_array/2
 % VS is given by NA3_Out
 disp(' ')
 disp('The specification:')
-phi = '(VP || PVC || VS) -> ([]_[0,500] !VP)'
+% phi = '(VP \/ PVC \/ VS) -> ([]_[0,500] !VP)'
+phi = 'VP'
 
-preds.str='VP';
-preds.A = [zeros(1,7), -1, 0];
-preds.b = -1;
+preds(1).str='VP';
+preds(1).A = [zeros(1,7), -1, 0];
+preds(1).b = -1;
 
-preds.str='PVC';
-preds.A = [zeros(1,8), -1];
-preds.b = -1;
+preds(2).str='PVC';
+preds(2).A = [zeros(1,8), -1];
+preds(2).b = -1;
 
-preds.str='VS';
-preds.A = [0, 0, -1, zeros(1,6)];
-preds.b = -1;
+preds(3).str='VS';
+preds(3).A = [0, 0, -1, zeros(1,6)];
+preds(3).b = -1;
 
 disp(' ')
 disp('Total Simulation time:')
@@ -91,8 +92,10 @@ opt = staliro_options();
 
 opt.optimization_solver = 'UR_Taliro';
 opt.runs = 2;
-opt.n_tests = 3;
-opt.spec_space='X';
+opt.ur_params.n_tests = 3;
+opt.spec_space='Y';
+opt.interpolationtype = {'bool'};
+opt.n_workers = 1;
 
 open_system(sprintf('%s/pacemaker_DDD/pacem_aut',model));
 
