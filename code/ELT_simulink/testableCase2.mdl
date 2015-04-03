@@ -50,7 +50,7 @@ Model {
       BusOutputAsStruct	      "off"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.9"
+    ComputedModelVersion    "1.10"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -87,7 +87,7 @@ Model {
       $ObjectID		      3
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [-8.0, 22.0, 1280.0, 713.0]
+      Location		      [-8.0, 22.0, 1280.0, 711.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		4
@@ -111,9 +111,9 @@ Model {
 	IsActive		[1]
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
-	Extents			[1246.0, 540.0]
+	Extents			[1246.0, 538.0]
 	ZoomFactor		[1.0]
-	Offset			[437.0, 330.0]
+	Offset			[189.50000000000023, 18.083333333333428]
       }
     }
   }
@@ -123,9 +123,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "mlab"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Apr 02 14:23:45 2015"
-  RTWModifiedTimeStamp	  349885422
-  ModelVersionFormat	  "1.%<AutoIncrement:9>"
+  LastModifiedDate	  "Thu Apr 02 19:09:30 2015"
+  RTWModifiedTimeStamp	  349902050
+  ModelVersionFormat	  "1.%<AutoIncrement:10>"
   ConfigurationManager	  "none"
   SampleTimeColors	  on
   SampleTimeAnnotations	  off
@@ -926,7 +926,7 @@ Model {
   }
   System {
     Name		    "testableCase2"
-    Location		    [-8, 22, 1272, 735]
+    Location		    [-8, 22, 1272, 733]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1571,6 +1571,7 @@ Model {
       ZOrder		      -52
       ShowName		      off
       GotoTag		      "NA1_out"
+      IconDisplay	      "Tag and signal name"
     }
     Block {
       BlockType		      From

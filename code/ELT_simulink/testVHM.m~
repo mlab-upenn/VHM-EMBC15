@@ -1,6 +1,6 @@
 clear
 
-model='case2mod_new';
+model='testableCase2';
 % Tclk_h=1;
 % set_param(model,'StopTime','10000');
 % set_param(sys_name,'simulationcommand','start');
@@ -8,17 +8,18 @@ model='case2mod_new';
 
 % Node table
 % 1.	Name(p)
-                % 2.	State(s)
-                % 3.	ERP_cur(s)
+                        % 2.	State(s)
+                        % 3.	ERP_cur(s)
 % 4.	ERP_def(p)
-                % 5.	RRP_cur(s)
+                        % 5.	RRP_cur(s)
 % 6.	RRP_def(p)
-                % 7.	Rest_cur(s)
+                        % 7.	Rest_cur(s)
 % 8.	Rest_def(p)
                         % 9.	Node_in(s)
 % 10.	ERP_int(p)
                         % 11.	Node_out(s)
 % 12.	Node_cat(p)
+
 % Path table
 % 1.	Name(p)
                         % 2.	State(s)
@@ -40,13 +41,12 @@ model='case2mod_new';
                         % 2.	State(s)
                         % 3.	Timer_cur(s)
 % 4.	Timer_def(p)
-% 5.                                          (1)AP(w); 
-%                                             (2)VP(w); 
+% 5.                                          (1)AP(u); 
+%                                             (2)VP(u); 
 %                       (3)AS(s); 
 %                       (4)VS(s); 
+%%
 
-
-load(sprintf('%s.mat',sys_name));
 setup_case2none;
 % % rto = get_param(sprintf('%s/%s/node_aut',sys_name,node_name{i}),'RuntimeObject');
 % % node_c=rto.OutputPort(2).Data;
@@ -54,15 +54,16 @@ setup_case2none;
 % % 
 
 disp(' ')
-disp('The constraints on the input signals defined as a hypercube:')
-init_cond = [-.2 .2;-.2 .2;-.2 .2] %#ok<*NOPTS>
+disp('The constraints on the initial conditions:')
+init_cond = [0, 1; 0, 1] %#ok<*NOPTS>
 
 disp(' ')
-disp('The constraints on the input signal defined as a range:')
-input_range = [-.5 .5]
+disp('The constraints on the input signals PVC and PAC defined as a hypercube:')
+input_range = [0 1; 0 1]
 disp(' ')
-disp('The number of control points for the input signal:')
+disp('The number of control points for the input signal determines how many pulses there are:')
 cp_array = 10
+nb_pulses = cp_array/2
 
 disp(' ')
 disp('The specification:')

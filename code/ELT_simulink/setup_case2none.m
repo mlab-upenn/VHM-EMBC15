@@ -1,6 +1,6 @@
 
 
-load(sprintf('%s.mat',sys_name));
+load(sprintf('%s.mat',model));
 
 for i=1:size(node_table,1)
     node_name{i}=sprintf('NA%d_%s',i,node_table{i,1});
