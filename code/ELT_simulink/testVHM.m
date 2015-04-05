@@ -69,14 +69,13 @@ nb_pulses = cp_array/2
 % VS is given by NA3_Out
 disp(' ')
 disp('The specification:')
-phi = '[](vp \/ vs \/ pvc) -> ([]_[0,500] !vp)'
+phi = '[](vp \/ vs \/ pvc) -> ([]_[1,500] !vp)'
 % More accurate spec: on falling edge of any of the signals, count 500 ms of no VP
-phi_vp  = '((vp /\ X(!vp))   -> X([]_[0,500]!vp))';
-phi_vs  = '((vs /\ X(!vs))   -> X([]_[0,500]!vp))';
-phi_pvc = '((pvc /\ X(!pvc)) -> X([]_[0,500]!vp))';
+phi_vp  = '((vp /\ X(!vp))   -> X([]_[1,500]!vp))';
+phi_vs  = '((vs /\ X(!vs))   -> X([]_[1,500]!vp))';
+phi_pvc = '((pvc /\ X(!pvc)) -> X([]_[1,500]!vp))';
 
 phifull = ['[] ( ', phi_vp,' /\', phi_vs, '/\', phi_pvc, ' )'];
-%phifull = '[]( ((vp /\ X(!vp)) -> X([]_[0,500]!vp)) /\ ((vs /\ X(!vs)) -> X([]_[0,500]!vp)) /\ ((pvc /\ X(!pvc)) -> X([]_[0,500]!vp)) )';
 
 preds(1).str='vp';
 preds(1).A = [zeros(1,7), -1, 0];
@@ -98,7 +97,7 @@ opt = staliro_options();
 
 opt.optimization_solver = 'SA_Taliro';
 opt.runs = 3;
-opt.sa_params.n_tests = 3;%1000;
+opt.sa_params.n_tests = 2;%1000;
 opt.spec_space='Y';
 opt.interpolationtype = {'bool'};
 opt.n_workers = 1;
@@ -123,26 +122,13 @@ VP1 = YT1(:,8);
 PVC1 = YT1(:,9);
 figure(1)
 clf
-subplot(2,1,1)
-plot(T1,YT1(:,[3,8,9]))
-title('State trajectories')
-legend('VS_3', 'VP', 'PVC')
-subplot(2,1,2)
-plot(IT1(:,1),IT1(:,3))
-title('Input Signal')
-
-[T2,XT2,YT2,IT2] = SimSimulinkMdl(model,init_cond,input_range,cp_array,results.run(2).bestSample,simTime,opt);
-VS2 = YT2(:,3);
-VP2 = YT2(:,8);
-PVC2 = YT2(:,9);
-figure(2)
-clf
-subplot(2,1,1)
-plot(T2,YT2(:,[3,8,9]))
-title('State trajectories')
-legend('VS_3', 'VP', 'PVC')
-subplot(2,1,2)
-plot(IT2(:,1),IT2(:,3))
-title('Input Signal')
-
+subplot(3,1,1)
+plot(T1,VS1)
+title('VS_1')
+subplot(3,1,2)
+plot(T1,VP1)
+title('VP_1')
+subplot(3,1,3)
+plot(T1,PVC1)
+title('PVC_1')
 

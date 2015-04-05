@@ -61,7 +61,7 @@ Model {
       BusOutputAsStruct	      "off"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.15"
+    ComputedModelVersion    "1.18"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -134,9 +134,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "mlab"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Apr 03 14:26:20 2015"
-  RTWModifiedTimeStamp	  349971973
-  ModelVersionFormat	  "1.%<AutoIncrement:15>"
+  LastModifiedDate	  "Sat Apr 04 00:02:05 2015"
+  RTWModifiedTimeStamp	  350006447
+  ModelVersionFormat	  "1.%<AutoIncrement:18>"
   ConfigurationManager	  "none"
   SampleTimeColors	  on
   SampleTimeAnnotations	  off
@@ -252,7 +252,7 @@ Model {
 	  $ObjectID		  9
 	  Version		  "1.15.0"
 	  StartTime		  "0.0"
-	  StopTime		  "50000"
+	  StopTime		  "5000"
 	  AbsTol		  "auto"
 	  FixedStep		  "1"
 	  InitialStep		  "auto"
@@ -400,7 +400,7 @@ Model {
 	  MaxConsecutiveZCsMsg	  "error"
 	  MaskedZcDiagnostic	  "warning"
 	  IgnoredZcDiagnostic	  "warning"
-	  SolverPrmCheckMsg	  "warning"
+	  SolverPrmCheckMsg	  "none"
 	  InheritedTsInSrcMsg	  "warning"
 	  DiscreteInheritContinuousMsg "warning"
 	  MultiTaskDSMMsg	  "error"
@@ -774,8 +774,8 @@ Model {
 	PropName		"Components"
       }
       Name		      "Configuration"
-      CurrentDlgPage	      "Solver"
-      ConfigPrmDlgPosition     [ 400, 210, 1280, 840 ] 
+      CurrentDlgPage	      "Diagnostics"
+      ConfigPrmDlgPosition     [ 130, 68, 1210, 730 ] 
     }
     PropName		    "ConfigurationSets"
   }
