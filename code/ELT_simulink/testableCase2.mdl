@@ -4,11 +4,7 @@ Model {
   MdlSubVersion		  0
   SavedCharacterEncoding  "ISO-8859-1"
   GraphicalInterface {
-    NumRootInports	    2
-    Inport {
-      Name		      "PAC_IN"
-      BusObject		      ""
-    }
+    NumRootInports	    1
     Inport {
       Name		      "PVC_IN"
       BusObject		      ""
@@ -61,7 +57,7 @@ Model {
       BusOutputAsStruct	      "off"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.18"
+    ComputedModelVersion    "1.33"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -115,16 +111,28 @@ Model {
 	$ClassName		"Simulink.ExplorerBarInfo"
 	Visible			[1]
       }
-      Object {
-	$PropName		"EditorsInfo"
-	$ObjectID		6
-	$ClassName		"Simulink.EditorInfo"
-	IsActive		[1]
-	ViewObjType		"SimulinkTopLevel"
-	LoadSaveID		"0"
-	Extents			[1246.0, 538.0]
-	ZoomFactor		[1.0]
-	Offset			[437.0, 307.0]
+      Array {
+	Type			"Simulink.EditorInfo"
+	Dimension		2
+	Object {
+	  $ObjectID		  6
+	  IsActive		  [1]
+	  ViewObjType		  "SimulinkTopLevel"
+	  LoadSaveID		  "0"
+	  Extents		  [1246.0, 538.0]
+	  ZoomFactor		  [1.0]
+	  Offset		  [6.0, 38.0]
+	}
+	Object {
+	  $ObjectID		  7
+	  IsActive		  [0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "184"
+	  Extents		  [1246.0, 538.0]
+	  ZoomFactor		  [1.0]
+	  Offset		  [0.0, 63.0]
+	}
+	PropName		"EditorsInfo"
       }
     }
   }
@@ -134,9 +142,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "mlab"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sat Apr 04 00:02:05 2015"
-  RTWModifiedTimeStamp	  350006447
-  ModelVersionFormat	  "1.%<AutoIncrement:18>"
+  LastModifiedDate	  "Mon Apr 06 16:50:29 2015"
+  RTWModifiedTimeStamp	  350239829
+  ModelVersionFormat	  "1.%<AutoIncrement:33>"
   ConfigurationManager	  "none"
   SampleTimeColors	  on
   SampleTimeAnnotations	  off
@@ -163,9 +171,9 @@ Model {
   BrowserShowLibraryLinks on
   BrowserLookUnderMasks	  on
   SimulationMode	  "normal"
-  PauseTimes		  "5"
+  PauseTimes		  "2150"
   NumberOfSteps		  1
-  SnapshotBufferSize	  10
+  SnapshotBufferSize	  20
   SnapshotInterval	  10
   NumberOfLastSnapshots	  0
   LinearizationMsg	  "none"
@@ -177,7 +185,7 @@ Model {
   TryForcingSFcnDF	  off
   Object {
     $PropName		    "DataLoggingOverride"
-    $ObjectID		    7
+    $ObjectID		    8
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "case2mod_new_scope"
     signals_		    []
@@ -243,16 +251,16 @@ Model {
     Type		    "Handle"
     Dimension		    1
     Simulink.ConfigSet {
-      $ObjectID		      8
+      $ObjectID		      9
       Version		      "1.15.0"
       Array {
 	Type			"Handle"
 	Dimension		9
 	Simulink.SolverCC {
-	  $ObjectID		  9
+	  $ObjectID		  10
 	  Version		  "1.15.0"
 	  StartTime		  "0.0"
-	  StopTime		  "5000"
+	  StopTime		  "7000"
 	  AbsTol		  "auto"
 	  FixedStep		  "1"
 	  InitialStep		  "auto"
@@ -284,13 +292,13 @@ Model {
 	  InsertRTBMode		  "Whenever possible"
 	}
 	Simulink.DataIOCC {
-	  $ObjectID		  10
+	  $ObjectID		  11
 	  Version		  "1.15.0"
 	  Decimation		  "1"
-	  ExternalInput		  "[t, u]"
+	  ExternalInput		  "InpSignal"
 	  FinalStateName	  "xFinal"
 	  InitialState		  "xInitial"
-	  LimitDataPoints	  on
+	  LimitDataPoints	  off
 	  MaxDataPoints		  "1000"
 	  LoadExternalInput	  off
 	  LoadInitialState	  off
@@ -317,7 +325,7 @@ Model {
 	  Refine		  "1"
 	}
 	Simulink.OptimizationCC {
-	  $ObjectID		  11
+	  $ObjectID		  12
 	  Version		  "1.15.0"
 	  Array {
 	    Type		    "Cell"
@@ -374,7 +382,7 @@ Model {
 	  AccelVerboseBuild	  off
 	}
 	Simulink.DebuggingCC {
-	  $ObjectID		  12
+	  $ObjectID		  13
 	  Version		  "1.15.0"
 	  RTPrefix		  "error"
 	  ConsistencyChecking	  "none"
@@ -463,7 +471,7 @@ Model {
 	  IntegerSaturationMsg	  "warning"
 	}
 	Simulink.HardwareCC {
-	  $ObjectID		  13
+	  $ObjectID		  14
 	  Version		  "1.15.0"
 	  ProdBitPerChar	  8
 	  ProdBitPerShort	  16
@@ -503,7 +511,7 @@ Model {
 	  ProdEqTarget		  off
 	}
 	Simulink.ModelReferenceCC {
-	  $ObjectID		  14
+	  $ObjectID		  15
 	  Version		  "1.15.0"
 	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
 	  CheckModelReferenceTargetMessage "error"
@@ -518,7 +526,7 @@ Model {
 	  SupportModelReferenceSimTargetCustomCode off
 	}
 	Simulink.SFSimCC {
-	  $ObjectID		  15
+	  $ObjectID		  16
 	  Version		  "1.15.0"
 	  SFSimOverflowDetection  on
 	  SFSimEcho		  on
@@ -531,7 +539,7 @@ Model {
 	}
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
-	  $ObjectID		  16
+	  $ObjectID		  17
 	  Version		  "1.15.0"
 	  Array {
 	    Type		    "Cell"
@@ -603,7 +611,7 @@ Model {
 	    Type		    "Handle"
 	    Dimension		    2
 	    Simulink.CodeAppCC {
-	      $ObjectID		      17
+	      $ObjectID		      18
 	      Version		      "1.15.0"
 	      Array {
 		Type			"Cell"
@@ -672,7 +680,7 @@ Model {
 	    }
 	    Simulink.GRTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
-	      $ObjectID		      18
+	      $ObjectID		      19
 	      Version		      "1.15.0"
 	      Array {
 		Type			"Cell"
@@ -759,7 +767,7 @@ Model {
 	  }
 	}
 	hdlcoderui.hdlcc {
-	  $ObjectID		  19
+	  $ObjectID		  20
 	  Version		  "1.15.0"
 	  Description		  "HDL Coder custom configuration component"
 	  Name			  "HDL Coder"
@@ -774,18 +782,18 @@ Model {
 	PropName		"Components"
       }
       Name		      "Configuration"
-      CurrentDlgPage	      "Diagnostics"
-      ConfigPrmDlgPosition     [ 130, 68, 1210, 730 ] 
+      CurrentDlgPage	      "Data Import//Export"
+      ConfigPrmDlgPosition     [ 130, 50, 1210, 712 ] 
     }
     PropName		    "ConfigurationSets"
   }
   Simulink.ConfigSet {
     $PropName		    "ActiveConfigurationSet"
-    $ObjectID		    8
+    $ObjectID		    9
   }
   Object {
     $PropName		    "DataTransfer"
-    $ObjectID		    20
+    $ObjectID		    21
     $ClassName		    "Simulink.GlobalDataTransfer"
     DefaultTransitionBetweenSyncTasks "Ensure deterministic transfer (maximum delay)"
     DefaultTransitionBetweenAsyncTasks "Ensure data integrity only"
@@ -945,6 +953,9 @@ Model {
       SampleTime	      "-1"
       ScrollMode	      off
     }
+    Block {
+      BlockType		      Terminator
+    }
   }
   System {
     Name		    "testableCase2"
@@ -962,23 +973,13 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "207"
-    Block {
-      BlockType		      Inport
-      Name		      "PAC_IN"
-      SID		      "202"
-      Position		      [1250, 658, 1280, 672]
-      ZOrder		      5
-      IconDisplay	      "Port number"
-      OutDataTypeStr	      "double"
-    }
+    SIDHighWatermark	    "226"
     Block {
       BlockType		      Inport
       Name		      "PVC_IN"
       SID		      "203"
       Position		      [1250, 783, 1280, 797]
       ZOrder		      6
-      Port		      "2"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
     }
@@ -1005,13 +1006,13 @@ Model {
       BlockType		      Scope
       Name		      "HeartScope"
       SID		      "173"
-      Ports		      [9]
-      Position		      [1550, 50, 1600, 170]
+      Ports		      [12]
+      Position		      [1735, 50, 1785, 170]
       ZOrder		      -2
       Floating		      off
-      Location		      [5, 72, 1277, 710]
+      Location		      [1, 71, 1281, 735]
       Open		      off
-      NumInputPorts	      "9"
+      NumInputPorts	      "12"
       List {
 	ListType		AxesTitles
 	axes1			"NA_1"
@@ -1023,10 +1024,13 @@ Model {
 	axes7			"NA_7"
 	axes8			"%<SignalLabel>"
 	axes9			"%<SignalLabel>"
+	axes10			"%<SignalLabel>"
+	axes11			"%<SignalLabel>"
+	axes12			"%<SignalLabel>"
       }
       List {
 	ListType		ScopeGraphics
-	FigureColor		"[0.5 0.5 0.5]"
+	FigureColor		"[0.501960784313725 0.501960784313725 0.501960784313725]"
 	AxesColor		"[0 0 0]"
 	AxesTickColor		"[1 1 1]"
 	LineColors		"[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
@@ -1034,8 +1038,9 @@ Model {
 	LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
 	MarkerStyles		"none|none|none|none|none|none"
       }
-      YMin		      "-5~-5~-5~-5~-5~-5~-5~-5~-5"
-      YMax		      "5~5~5~5~5~5~5~5~5"
+      TimeRange		      "1500"
+      YMin		      "0~0~0~0~0~0~0~-1~-1~0~-5~-5"
+      YMax		      "1~1~1~1~1~1~1~1~1~1~5~5"
       SaveToWorkspace	      on
       SaveName		      "scopedata"
       DataFormat	      "StructureWithTime"
@@ -1070,7 +1075,8 @@ Model {
       Ports		      [2, 3]
       Position		      [110, 50, 225, 100]
       ZOrder		      -5
-      LibraryVersion	      "1.105"
+      ForegroundColor	      "red"
+      LibraryVersion	      "1.109"
       SourceBlock	      "SimpleModeling/NA_simple2"
       SourceType	      ""
       ContentPreviewEnabled   off
@@ -1134,7 +1140,8 @@ Model {
       Ports		      [2, 3]
       Position		      [110, 130, 225, 180]
       ZOrder		      -11
-      LibraryVersion	      "1.105"
+      ForegroundColor	      "red"
+      LibraryVersion	      "1.109"
       SourceBlock	      "SimpleModeling/NA_simple2"
       SourceType	      ""
       ContentPreviewEnabled   off
@@ -1244,7 +1251,8 @@ Model {
       Ports		      [2, 3]
       Position		      [110, 210, 225, 260]
       ZOrder		      -19
-      LibraryVersion	      "1.105"
+      ForegroundColor	      "red"
+      LibraryVersion	      "1.109"
       SourceBlock	      "SimpleModeling/NA_simple2"
       SourceType	      ""
       ContentPreviewEnabled   off
@@ -1309,7 +1317,8 @@ Model {
       Ports		      [2, 3]
       Position		      [110, 290, 225, 340]
       ZOrder		      -25
-      LibraryVersion	      "1.105"
+      ForegroundColor	      "red"
+      LibraryVersion	      "1.109"
       SourceBlock	      "SimpleModeling/NA_simple2"
       SourceType	      ""
       ContentPreviewEnabled   off
@@ -1385,7 +1394,8 @@ Model {
       Ports		      [2, 3]
       Position		      [110, 370, 225, 420]
       ZOrder		      -32
-      LibraryVersion	      "1.105"
+      ForegroundColor	      "red"
+      LibraryVersion	      "1.109"
       SourceBlock	      "SimpleModeling/NA_simple2"
       SourceType	      ""
       ContentPreviewEnabled   off
@@ -1472,7 +1482,8 @@ Model {
       Ports		      [2, 3]
       Position		      [110, 450, 225, 500]
       ZOrder		      -40
-      LibraryVersion	      "1.105"
+      ForegroundColor	      "red"
+      LibraryVersion	      "1.109"
       SourceBlock	      "SimpleModeling/NA_simple2"
       SourceType	      ""
       ContentPreviewEnabled   off
@@ -1548,7 +1559,8 @@ Model {
       Ports		      [2, 3]
       Position		      [110, 530, 225, 580]
       ZOrder		      -47
-      LibraryVersion	      "1.105"
+      ForegroundColor	      "red"
+      LibraryVersion	      "1.109"
       SourceBlock	      "SimpleModeling/NA_simple2"
       SourceType	      ""
       ContentPreviewEnabled   off
@@ -1695,7 +1707,8 @@ Model {
       Ports		      [5, 3]
       Position		      [500, 50, 605, 120]
       ZOrder		      -62
-      LibraryVersion	      "1.105"
+      ForegroundColor	      "red"
+      LibraryVersion	      "1.109"
       SourceBlock	      "SimpleModeling/PA_simple2"
       SourceType	      ""
       ContentPreviewEnabled   off
@@ -1800,7 +1813,8 @@ Model {
       Ports		      [5, 3]
       Position		      [500, 150, 605, 220]
       ZOrder		      -73
-      LibraryVersion	      "1.105"
+      ForegroundColor	      "red"
+      LibraryVersion	      "1.109"
       SourceBlock	      "SimpleModeling/PA_simple2"
       SourceType	      ""
       ContentPreviewEnabled   off
@@ -1886,7 +1900,8 @@ Model {
       Ports		      [5, 3]
       Position		      [500, 250, 605, 320]
       ZOrder		      -82
-      LibraryVersion	      "1.105"
+      ForegroundColor	      "red"
+      LibraryVersion	      "1.109"
       SourceBlock	      "SimpleModeling/PA_simple2"
       SourceType	      ""
       ContentPreviewEnabled   off
@@ -1982,7 +1997,8 @@ Model {
       Ports		      [5, 3]
       Position		      [500, 350, 605, 420]
       ZOrder		      -92
-      LibraryVersion	      "1.105"
+      ForegroundColor	      "red"
+      LibraryVersion	      "1.109"
       SourceBlock	      "SimpleModeling/PA_simple2"
       SourceType	      ""
       ContentPreviewEnabled   off
@@ -2087,7 +2103,8 @@ Model {
       Ports		      [5, 3]
       Position		      [500, 450, 605, 520]
       ZOrder		      -103
-      LibraryVersion	      "1.105"
+      ForegroundColor	      "red"
+      LibraryVersion	      "1.109"
       SourceBlock	      "SimpleModeling/PA_simple2"
       SourceType	      ""
       ContentPreviewEnabled   off
@@ -2183,7 +2200,8 @@ Model {
       Ports		      [5, 3]
       Position		      [500, 550, 605, 620]
       ZOrder		      -113
-      LibraryVersion	      "1.105"
+      ForegroundColor	      "red"
+      LibraryVersion	      "1.109"
       SourceBlock	      "SimpleModeling/PA_simple2"
       SourceType	      ""
       ContentPreviewEnabled   off
@@ -2279,7 +2297,8 @@ Model {
       Ports		      [5, 3]
       Position		      [500, 650, 605, 720]
       ZOrder		      -123
-      LibraryVersion	      "1.105"
+      ForegroundColor	      "red"
+      LibraryVersion	      "1.109"
       SourceBlock	      "SimpleModeling/PA_simple2"
       SourceType	      ""
       ContentPreviewEnabled   off
@@ -2349,6 +2368,14 @@ Model {
       ZOrder		      -130
       ShowName		      off
       GotoTag		      "PA7_out_2"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "PAC_IN"
+      SID		      "211"
+      Position		      [1240, 650, 1270, 680]
+      ZOrder		      13
+      Value		      "0"
     }
     Block {
       BlockType		      Goto
@@ -2477,6 +2504,104 @@ Model {
       GotoTag		      "NA7_out"
     }
     Block {
+      BlockType		      Terminator
+      Name		      "Terminator"
+      SID		      "213"
+      Position		      [640, 100, 660, 120]
+      ZOrder		      15
+    }
+    Block {
+      BlockType		      Terminator
+      Name		      "Terminator1"
+      SID		      "214"
+      Position		      [640, 200, 660, 220]
+      ZOrder		      16
+    }
+    Block {
+      BlockType		      Terminator
+      Name		      "Terminator10"
+      SID		      "223"
+      Position		      [350, 305, 370, 325]
+      ZOrder		      25
+    }
+    Block {
+      BlockType		      Terminator
+      Name		      "Terminator11"
+      SID		      "224"
+      Position		      [350, 390, 370, 410]
+      ZOrder		      26
+    }
+    Block {
+      BlockType		      Terminator
+      Name		      "Terminator12"
+      SID		      "225"
+      Position		      [350, 460, 370, 480]
+      ZOrder		      27
+    }
+    Block {
+      BlockType		      Terminator
+      Name		      "Terminator13"
+      SID		      "226"
+      Position		      [340, 545, 360, 565]
+      ZOrder		      28
+    }
+    Block {
+      BlockType		      Terminator
+      Name		      "Terminator2"
+      SID		      "215"
+      Position		      [640, 300, 660, 320]
+      ZOrder		      17
+    }
+    Block {
+      BlockType		      Terminator
+      Name		      "Terminator3"
+      SID		      "216"
+      Position		      [650, 400, 670, 420]
+      ZOrder		      18
+    }
+    Block {
+      BlockType		      Terminator
+      Name		      "Terminator4"
+      SID		      "217"
+      Position		      [650, 500, 670, 520]
+      ZOrder		      19
+    }
+    Block {
+      BlockType		      Terminator
+      Name		      "Terminator5"
+      SID		      "218"
+      Position		      [640, 600, 660, 620]
+      ZOrder		      20
+    }
+    Block {
+      BlockType		      Terminator
+      Name		      "Terminator6"
+      SID		      "219"
+      Position		      [640, 700, 660, 720]
+      ZOrder		      21
+    }
+    Block {
+      BlockType		      Terminator
+      Name		      "Terminator7"
+      SID		      "220"
+      Position		      [340, 60, 360, 80]
+      ZOrder		      22
+    }
+    Block {
+      BlockType		      Terminator
+      Name		      "Terminator8"
+      SID		      "221"
+      Position		      [340, 145, 360, 165]
+      ZOrder		      23
+    }
+    Block {
+      BlockType		      Terminator
+      Name		      "Terminator9"
+      SID		      "222"
+      Position		      [340, 225, 360, 245]
+      ZOrder		      24
+    }
+    Block {
       BlockType		      From
       Name		      "a_pace_f"
       SID		      "11"
@@ -2489,7 +2614,7 @@ Model {
       BlockType		      Goto
       Name		      "a_pace_inTag"
       SID		      "183"
-      Position		      [1575, 532, 1655, 548]
+      Position		      [1735, 537, 1815, 553]
       ZOrder		      -154
       ShowName		      off
       GotoTag		      "a_pace"
@@ -2510,16 +2635,18 @@ Model {
       Ports		      [2, 4]
       Position		      [1260, 531, 1400, 634]
       ZOrder		      -156
+      ForegroundColor	      "red"
+      BackgroundColor	      "yellow"
       NamePlacement	      "alternate"
-      LibraryVersion	      "1.105"
+      LibraryVersion	      "1.109"
       SourceBlock	      "SimpleModeling/pacemaker_DDD"
       SourceType	      ""
       ContentPreviewEnabled   off
-      LRI_def		      "10"
+      LRI_def		      "1000"
       AVI_def		      "150"
-      ARP_def		      "10"
-      VRP_def		      "80"
-      URI_def		      "50"
+      ARP_def		      "150"
+      VRP_def		      "200"
+      URI_def		      "400"
       Port {
 	PortNumber		1
 	Name			"a_pace"
@@ -2531,6 +2658,20 @@ Model {
 	PortNumber		2
 	Name			"v_pace"
 	PropagatedSignals	"AVIout"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
+      Port {
+	PortNumber		3
+	Name			"a_sense"
+	PropagatedSignals	"ARPout"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
+      Port {
+	PortNumber		4
+	Name			"v_sense"
+	PropagatedSignals	"VRPout"
 	RTWStorageClass		"Auto"
 	DataLoggingNameMode	"SignalName"
       }
@@ -2557,7 +2698,7 @@ Model {
       BlockType		      Goto
       Name		      "v_pace_inTag"
       SID		      "185"
-      Position		      [1575, 547, 1655, 563]
+      Position		      [1735, 552, 1815, 568]
       ZOrder		      -159
       ShowName		      off
       GotoTag		      "v_pace"
@@ -3423,7 +3564,7 @@ Model {
       ZOrder		      112
       SrcBlock		      "ScopeOutput1"
       SrcPort		      1
-      Points		      [0, 10]
+      Points		      [0, 15]
       DstBlock		      "HeartScope"
       DstPort		      1
     }
@@ -3431,7 +3572,7 @@ Model {
       ZOrder		      113
       SrcBlock		      "ScopeOutput2"
       SrcPort		      1
-      Points		      [0, 5]
+      Points		      [130, 0; 0, 5]
       DstBlock		      "HeartScope"
       DstPort		      2
     }
@@ -3439,6 +3580,7 @@ Model {
       ZOrder		      114
       SrcBlock		      "ScopeOutput3"
       SrcPort		      1
+      Points		      [103, 0; 0, -5]
       DstBlock		      "HeartScope"
       DstPort		      3
     }
@@ -3446,7 +3588,7 @@ Model {
       ZOrder		      115
       SrcBlock		      "ScopeOutput4"
       SrcPort		      1
-      Points		      [0, -5]
+      Points		      [103, 0; 0, -15]
       DstBlock		      "HeartScope"
       DstPort		      4
     }
@@ -3454,7 +3596,7 @@ Model {
       ZOrder		      116
       SrcBlock		      "ScopeOutput5"
       SrcPort		      1
-      Points		      [0, -10]
+      Points		      [0, -25]
       DstBlock		      "HeartScope"
       DstPort		      5
     }
@@ -3462,6 +3604,7 @@ Model {
       ZOrder		      117
       SrcBlock		      "ScopeOutput6"
       SrcPort		      1
+      Points		      [65, -35]
       DstBlock		      "HeartScope"
       DstPort		      6
     }
@@ -3470,6 +3613,7 @@ Model {
       Labels		      [0, 0]
       SrcBlock		      "ScopeOutput7"
       SrcPort		      1
+      Points		      [65, -40]
       DstBlock		      "HeartScope"
       DstPort		      7
     }
@@ -3479,18 +3623,18 @@ Model {
       Labels		      [0, 0]
       SrcBlock		      "pacemaker_DDD"
       SrcPort		      1
-      Points		      [110, 0; 0, -5]
+      Points		      [110, 0]
+      Branch {
+	ZOrder			170
+	Labels			[1, 0]
+	Points			[0, -420]
+	DstBlock		"HeartScope"
+	DstPort			8
+      }
       Branch {
 	ZOrder			122
 	DstBlock		"a_pace_inTag"
 	DstPort			1
-      }
-      Branch {
-	ZOrder			123
-	Labels			[1, 0]
-	Points			[0, -385]
-	DstBlock		"HeartScope"
-	DstPort			8
       }
     }
     Line {
@@ -3499,15 +3643,10 @@ Model {
       Labels		      [0, 0]
       SrcBlock		      "pacemaker_DDD"
       SrcPort		      2
-      Points		      [130, 0; 0, -15]
+      Points		      [130, 0; 0, -10]
       Branch {
-	ZOrder			125
-	DstBlock		"v_pace_inTag"
-	DstPort			1
-      }
-      Branch {
-	ZOrder			126
-	Points			[0, -152]
+	ZOrder			169
+	Points			[0, -157]
 	Branch {
 	  ZOrder		  149
 	  Points		  [-165, 0]
@@ -3517,9 +3656,15 @@ Model {
 	Branch {
 	  ZOrder		  148
 	  Labels		  [1, 1]
+	  Points		  [0, -268]
 	  DstBlock		  "HeartScope"
 	  DstPort		  9
 	}
+      }
+      Branch {
+	ZOrder			125
+	DstBlock		"v_pace_inTag"
+	DstPort			1
       }
     }
     Line {
@@ -3571,7 +3716,7 @@ Model {
       DstPort		      2
     }
     Line {
-      ZOrder		      145
+      ZOrder		      180
       SrcBlock		      "PAC_IN"
       SrcPort		      1
       DstBlock		      "PAC_outTag"
@@ -3598,8 +3743,150 @@ Model {
       ZOrder		      163
       SrcBlock		      "Data Type Conversion"
       SrcPort		      1
-      DstBlock		      "PVC"
+      Points		      [82, 0]
+      Branch {
+	ZOrder			168
+	Points			[0, -112; 54, 0; 0, -473]
+	DstBlock		"HeartScope"
+	DstPort			10
+      }
+      Branch {
+	ZOrder			167
+	DstBlock		"PVC"
+	DstPort			1
+      }
+    }
+    Line {
+      Name		      "a_sense"
+      ZOrder		      177
+      Labels		      [1, 1]
+      SrcBlock		      "pacemaker_DDD"
+      SrcPort		      3
+      Points		      [203, 0; 0, -440]
+      DstBlock		      "HeartScope"
+      DstPort		      11
+    }
+    Line {
+      Name		      "v_sense"
+      ZOrder		      178
+      Labels		      [2, 1]
+      SrcBlock		      "pacemaker_DDD"
+      SrcPort		      4
+      Points		      [0, 12; 210, 0; 0, -467]
+      DstBlock		      "HeartScope"
+      DstPort		      12
+    }
+    Line {
+      ZOrder		      185
+      SrcBlock		      "PA1_1to2"
+      SrcPort		      3
+      DstBlock		      "Terminator"
       DstPort		      1
+    }
+    Line {
+      ZOrder		      186
+      SrcBlock		      "PA2_2to3"
+      SrcPort		      3
+      DstBlock		      "Terminator1"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      187
+      SrcBlock		      "PA3_1to4"
+      SrcPort		      3
+      DstBlock		      "Terminator2"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      188
+      SrcBlock		      "PA4_1to6"
+      SrcPort		      3
+      DstBlock		      "Terminator3"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      189
+      SrcBlock		      "PA5_4to5"
+      SrcPort		      3
+      DstBlock		      "Terminator4"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      190
+      SrcBlock		      "PA6_6to7"
+      SrcPort		      3
+      DstBlock		      "Terminator5"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      191
+      SrcBlock		      "PA7_5to7"
+      SrcPort		      3
+      DstBlock		      "Terminator6"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      192
+      SrcBlock		      "NA1_SA"
+      SrcPort		      2
+      Points		      [8, 0; 0, -5]
+      DstBlock		      "Terminator7"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      193
+      SrcBlock		      "NA2_AV"
+      SrcPort		      2
+      DstBlock		      "Terminator8"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      194
+      SrcBlock		      "NA3_RV"
+      SrcPort		      2
+      DstBlock		      "Terminator9"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      195
+      SrcBlock		      "NA4_F1"
+      SrcPort		      2
+      DstBlock		      "Terminator10"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      196
+      SrcBlock		      "NA5_F2"
+      SrcPort		      2
+      Points		      [105, 0]
+      DstBlock		      "Terminator11"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      197
+      SrcBlock		      "NA6_S1"
+      SrcPort		      2
+      Points		      [105, 0]
+      DstBlock		      "Terminator12"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      198
+      SrcBlock		      "NA7_S2"
+      SrcPort		      2
+      DstBlock		      "Terminator13"
+      DstPort		      1
+    }
+    Annotation {
+      SID		      "210"
+      Name		      "PVC"
+      Position		      [1503, 695, 1525, 707]
+      InternalMargins	      [0, 0, 0, 0]
+      FixedHeight	      off
+      FixedWidth	      off
+      HorizontalAlignment     "left"
+      VerticalAlignment	      "top"
+      ZOrder		      -1
     }
   }
 }

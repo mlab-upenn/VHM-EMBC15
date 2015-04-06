@@ -59,11 +59,11 @@ init_cond = [] %#ok<*NOPTS>
 
 disp(' ')
 disp('The constraints on the input signals PVC and PAC defined as a hypercube:')
-input_range = [0 1; 0 1]
+% input_range = [0 1; 0 1]
+input_range = [0 1]
 disp(' ')
 disp('The number of control points for the input signal determines how many pulses there are:')
-cp_array = [100, 100];
-nb_pulses = cp_array/2
+cp_array = 100*ones(1,size(input_range,1));
 
 
 %% =================
@@ -97,13 +97,13 @@ preds(3).b = -0.8;
 %  ==============
 disp(' ')
 disp('Total Simulation time:')
-simTime = 5000
+simTime = 7000
 
 opt = staliro_options();
 
 opt.optimization_solver = 'SA_Taliro';
 opt.runs = 3;
-opt.sa_params.n_tests = 3;%1000;
+opt.sa_params.n_tests = 5;%1000;
 opt.spec_space='Y';
 opt.interpolationtype = {'bool'};
 opt.n_workers = 1;
@@ -130,7 +130,8 @@ for i=1:3
     VS1 = YT1(:,3);
     VP1 = YT1(:,8);
     PVC1 = YT1(:,9);
-    kept{i} = YT1;
+    kept{i,1} = YT1;
+    kept{i,2} = IT1;
     oo = dp_t_taliro(phifull, preds,YT1,T1,[],[],[])
     figure(i)
     clf
@@ -144,3 +145,4 @@ for i=1:3
     plot(T1,PVC1)
     title(['PVC_',num2str(i)])
 end
+save('results.mat','kept','-append')
