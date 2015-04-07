@@ -1,0 +1,24 @@
+Device testing has two objectives
+
+\begin{itemize}
+	\item \textbf{Test whether the device model, which is used to develop, test and manufacture the device, is indeed correct}.
+	This is the classical goal of testing.
+	Starting from an initial executable model of the device, the model is refined and made more accurate as it moves through the design process. 
+	The model includes the control logic which will ultimately be implemented in software.
+	The final model, which forms the basis for manufacturing, must be tested to ensure that it meets its specifications.
+	
+	The specifications can be open-loop or closed-loop, leading to open-loop or closed-loop testing.
+	The distinction between the two is detailed in the next sections, but briefly, an open-loop specifications specifies the output behavior of the pacemaker given an input sequence.
+	The heart's behavior is not modeled and the specification does not describe what it should be.
+	A closed-loop specification specifies the behavior of either pacemaker, heart, or both, when they are connected as they would be in vivo.
+	Thus a closed-loop specification describes the overall closed-loop system, and a heart model is needed for closed-loop testing.
+		%
+	\item \textbf{Determining the range of parameters and heart conditions under which the device can operate according to certain specifications}.
+	A pacemaker is designed to operate differently depending on the environmental conditions. 
+	The environment of the pacemaker consists of the heart and the human body in which it operates. 
+	For example, \todo[inline]{give example of conditional specification}
+	It is not always clear where the limits of the operating conditions are.
+	Testing can help identify these boundaries, e.g. by demonstrating that if a certain environmental condition is met, then the pacemaker can no longer fulfill a certain function.
+	\todo[inline]{give example}
+	Because this behavior is environment-specific, it can only be tested in a closed-loop setting where the heart and external disturbances are modeled.
+\end{itemize}
