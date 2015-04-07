@@ -1,21 +1,26 @@
- load edge_cov
+ load HM
  load PM_new
  
  t=0;
- a_in=0;
- v_in=0;
- while t<=test(end,1)+100
+
+ while t<=5000
      t=t+1;
-     [a_out,v_out,pass]=PM_tester(test,a_in,v_in,t);
-     
-     [a_out,v_out,t]
+     [node_table,path_table]=heart_model(node_table,path_table);
+    % Sensing
+     a_out=node_table{1,7};
+     v_out=node_table{3,7};
+
      pace_param=pacemaker_new(pace_param, a_out, v_out, 1);
-     a_in=pace_param.a_pace;
-     v_in=pace_param.v_pace;
+     % pacing
+     node_table{1,6}=node_table{1,6} || pace_param.a_pace;
+     node_table{3,6}=node_table{3,6} || pace_param.v_pace;
+
+
+     % PAC
+     %node_table{1,7}=1;
+     % PVC
+     %node_table{3,7}=1;
      
-     if pass==0
-         disp('Test Fail');
-         break;
-     end
      
+
  end
