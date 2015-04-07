@@ -132,7 +132,7 @@ for i=1:3
     PVC1 = YT1(:,9);
     kept{i,1} = YT1;
     kept{i,2} = IT1;
-    oo = dp_t_taliro(phifull, preds,YT1,T1,[],[],[])
+    oo = dp_t_taliro(phi, preds,YT1,T1,[],[],[])
     figure(i)
     clf
     subplot(3,1,1)
