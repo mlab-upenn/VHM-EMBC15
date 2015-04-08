@@ -117,13 +117,14 @@ preds(7).b = [-2.8; 3.2];
 % individuals
 disp(' ')
 disp('Total Simulation time:')
-simTime = 5000
+simTime = 100
 
 opt = staliro_options();
 
 opt.optimization_solver = 'UR_Taliro';
 opt.runs = 3;
 opt.sa_params.n_tests = 5;%1000;
+opt.ur_params.n_tests = 5;%1000;
 opt.spec_space='Y';
 opt.interpolationtype = {'pulse'};
 if ~strcmp(opt.interpolationtype{1},'pulse')
@@ -159,7 +160,7 @@ display(['Minimum Robustness found in Run 2 = ',num2str(results.run(2).bestRob)]
 %% Graph
 for i=1:3
     [hs, rc] = systemsimulator(model, [], results.run(i).bestSample, simTime, input_range, cp_array);
-    oo = dp_t_taliro(phi, preds,hs.STraj,T,[],[],[])
+    oo = dp_t_taliro(phi, preds,hs.STraj,hs.T,[],[],[])
     %kept{i} = hs;    
     YT = hs.STraj;
     T = hs.T;    
