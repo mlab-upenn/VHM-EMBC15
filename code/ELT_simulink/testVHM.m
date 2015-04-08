@@ -77,6 +77,7 @@ phi_pvc = '((pvc /\ X(!pvc)) -> X([]_[1,500]!vp))';
 
 phifull = ['[] ( ', phi_vp,' /\ ', phi_vs, ' /\ ', phi_pvc, ' )'];
 %phifull = '[]( ((vp /\ X(!vp)) -> X([]_[0,500]!vp)) /\ ((vs /\ X(!vs)) -> X([]_[0,500]!vp)) /\ ((pvc /\ X(!pvc)) -> X([]_[0,500]!vp)) )';
+
 preds(1).str='vp';
 preds(1).A = [zeros(1,7), -1, 0];
 preds(1).b = -0.8;
@@ -96,8 +97,8 @@ simTime = 5000
 opt = staliro_options();
 
 opt.optimization_solver = 'SA_Taliro';
-opt.runs = 3;
-opt.sa_params.n_tests = 2;
+opt.runs = 20;
+opt.sa_params.n_tests = 2000;
 opt.spec_space='Y';
 opt.interpolationtype = {'bool'};
 opt.n_workers = 1;
@@ -118,5 +119,8 @@ disp(' ')
 display(['Minimum Robustness found in Run 1 = ',num2str(results.run(1).bestRob)])
 display(['Minimum Robustness found in Run 2 = ',num2str(results.run(2).bestRob)])
 
-
+[T1,XT1,YT1,IT1] = SimSimulinkMdl(model,init_cond,input_range,cp_array,results.run(1).bestSample,simTime,opt);
+VS1 = YT1(:,3);
+VP1 = YT1(:,8);
+PVC1 = YT1(:,9);
 
