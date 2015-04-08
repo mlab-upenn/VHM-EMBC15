@@ -1,0 +1,10 @@
+\section{Experiments}
+\label{experiments}
+Experiment 1: robustness-guided falsification of property
+\[\phi := interval(PVC || VS ||VP, VP) \geq 500ms \]
+
+\emph{Debugging the pacemaker}: found a missing transition, and incorrect parameter settings.
+
+\emph{Conditions for correct operation}: frequent PVC leads to incorrect pacing.
+
+\emph{Exploring behavior}: a safety feature (the ventricular safety feature) can provoke undesired heart behavior (frequent pacing). Useful to know even if it doesn't lead to a re-design since the safety feature is meant to protect against an even less desirable occurence. 

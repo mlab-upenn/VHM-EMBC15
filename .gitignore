@@ -1,3 +1,7 @@
+*.log
+*.aux
+*.bbl
+*/slprj/*
 *~
 # Windows image file caches
 Thumbs.db
