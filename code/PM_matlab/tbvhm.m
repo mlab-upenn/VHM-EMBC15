@@ -117,18 +117,18 @@ preds(7).b = [-2.8; 3.2];
 % individuals
 disp(' ')
 disp('Total Simulation time:')
-simTime = 100
+simTime = 10000
 
 opt = staliro_options();
 
 opt.optimization_solver = 'UR_Taliro';
 opt.runs = 3;
 opt.sa_params.n_tests = 5;%1000;
-opt.ur_params.n_tests = 5;%1000;
+opt.ur_params.n_tests = 15;%1000;
 opt.spec_space='Y';
 opt.interpolationtype = {'pulse'};
 if ~strcmp(opt.interpolationtype{1},'pulse')
-    opt.SampTime = 1;
+    opt.SampTime = 0.1;
 end
 opt.n_workers = 1;
 opt.varying_cp_times = 1;
@@ -161,28 +161,45 @@ display(['Minimum Robustness found in Run 2 = ',num2str(results.run(2).bestRob)]
 for i=1:3
     [hs, rc] = systemsimulator(model, [], results.run(i).bestSample, simTime, input_range, cp_array);
     oo = dp_t_taliro(phi, preds,hs.STraj,hs.T,[],[],[])
-    %kept{i} = hs;    
+    kept{i} = hs;    
     YT = hs.STraj;
     T = hs.T;    
     titles = { 'NA1', 'NA2', 'NA3', 'Apace', 'Vpace', 'PA1', 'PA2'};
-    plotorder = [5,7,2,6,1,5];
+    plotorder = [5,7,2,6,1];
     nbsignals = length(plotorder);
+    figure(i)
     ii=1;
     for s=plotorder
-        subplot(nbsignals,1,ii)
+        subplot(nbsignals+1,1,ii)
         plot(T,YT(:,s))
         title(titles{s})
         ii=ii+1;
     end
-    fvp = find(YT(:,5));
-    fpa2 = find(YT(:,end));
-    fna2 = find(YT(:,2));
-    fpa1 = find(YT(:,6));
-    fna1 = find(YT(:,1));    
     
     IT = hs.InputSignal;
-    figure
+    subplot(nbsignals+1,1,nbsignals+1)
     plot(T,IT)
     title('Input signal')
+    
+    fvp  = find(YT(:,5));
+    fpa2 = find(YT(:,end)==3);
+    fna2 = find(YT(:,2));
+    fpa1 = find(YT(:,6)==3);
+    fna1 = find(YT(:,1));
+    for jj=2:length(fvp)
+        lend = fvp(jj-1);
+        rend = fvp(jj);
+        if T(rend) - T(lend) <= 600
+            disp(['Difference is ',num2str( T(rend) - T(lend))])
+            btwPA2 = find(fpa2 <= rend & fpa2 >= lend);
+            btwNA2 = find(fna2 <= rend & fna2 >= lend);
+            btwPA1 = find(fpa1 <= rend & fpa1 >= lend);
+            btwNA1 = find(fna1 <= rend & fna1 >= lend);
+            if ~isempty(btwPA2) && ~isempty(btwPA1) && ~isempty(btwNA2) && ~isempty(btwNA1) 
+                disp(['Check figure ',num2str(i) ' between ', num2str(T(lend)), ' and ' , num2str(T(rend))])
+            end
+        end
+    end
+    
 end
 save('results.mat','kept','-append')
