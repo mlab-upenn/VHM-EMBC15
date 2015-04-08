@@ -12,11 +12,15 @@ init_cond = [] %#ok<*NOPTS>
 %at the time of initial clinical presentation.13?17 Patients with decreased 
 %LVEF had a higher mean PVC burden than their counterparts with normal LV 
 %function (29%?37% versus 8%?13%).15,18,19 However, there are no clear-cut 
-%points that mark the frequency at which cardiomyopathy is unavoidable. 
+%points that mark the frequency at which cardiomyopathy is unavoidable.
+%
 %Niwano et al13 used a cut point of 20 000 PVCs over 24 hours to define 
-%the high-frequency group, whereas Kanei et al17 used a figure of 10 000 
-%PVCs per day. Other studies defined ?frequent? PVCs as >10% of total beats
-%rather than the absolute number of PVCs,18,19 yet in some cases, a high 
+%the high-frequency group, 
+% whereas Kanei et al17 used a figure of 10 000 PVCs per day. 
+% Other studies defined ?frequent? PVCs as >10% of total beats
+%rather than the absolute number of PVCs,18,19 
+%
+%yet in some cases, a high 
 %PVC burden may not impair LV function, whereas PVC-induced cardiomyopathy 
 %can be observed in patients with lower PVC frequencies, albeit at lower 
 %incidences.12,16,17 It is not known why the majority of patients with 
@@ -46,19 +50,66 @@ cp_array = 10*ones(1,size(input_range,1));
 %% =================
 %  The spec
 %  =================
-% output = NA3, Apace, Vpace
+%Pattern:
+% Vpace -> PA2.state=3 -> NA2 -> PA1.state=3 -> NA1 -> VPace (repetitive for at least 4 cycles)
+% Vpace = pace_param.v_pace
+% PA2.state = path_table{2,1}
+% NA2 = node_table{2,7}
+% PA1.state = path_table{1,1}
+% NA1 = node_table{1,7}
+% ? time between events
+% 
+% Timing:
+% Vpace-Vpace<600
+
 disp(' ')
 disp('The specification:')
-phi = '[] ((na3 || vp) -> []_[0,500] !(na3||vp))'
+phiSimple = '[] ((na3 || vp) -> []_[0,500] !(na3||vp))';
 
+phiELT = '!( <>(vp /\ (vp -> <>(pa2 /\ pa2 -> <>(na2 /\ na2 -> <>(pa1 /\ pa1 -> <>(na1 /\ na1 -> <>(vp)) )) )) ) /\ (vp -> []_[1,600]!vp) )';
+
+phi = phiELT
+
+% Signals = NA1, NA2, NA3, Apace, Vpace, PA1, PA2
 preds(1).str='vp';
-preds(1).A = [0, 0, -1];
+preds(1).A = [0, 0, 0, 0, -1, 0, 0];
 preds(1).b = -0.8;
 
-preds(2).str='na3';
-preds(2).A = [-1, 0, 0];
+preds(2).str='na1';
+preds(2).A = [-1, 0, 0, 0, 0, 0, 0];
 preds(2).b = -0.8;
 
+preds(3).str='na2';
+preds(3).A = [0, -1, 0, 0, 0, 0, 0];
+preds(3).b = -0.8;
+
+preds(4).str='na3';
+preds(4).A = [0, 0, -1, 0, 0, 0, 0];
+preds(4).b = -0.8;
+
+preds(5).str='apace';
+preds(5).A = [0, 0, 0, -1, 0, 0, 0];
+preds(5).b = -0.8;
+
+preds(6).str='pa1';
+preds(6).A = [0, 0, 0, 0, 0, -1, 0
+              0, 0, 0, 0, 0, 1, 0];
+preds(6).b = [-2.8; 3.2];
+
+preds(7).str='pa2';
+preds(7).A = [0, 0, 0, 0, 0, 0, -1
+              0, 0, 0, 0, 0, 0, 1];
+preds(7).b = [-2.8; 3.2];
+
+
+% % Output = NA3, Apace, Vpace
+% preds(1).str='vp';
+% preds(1).A = [0, 0, -1];
+% preds(1).b = -0.8;
+% 
+% preds(2).str='na3';
+% preds(2).A = [-1, 0, 0];
+% preds(2).b = -0.8;
 %% ==============
 %  Run option
 %  ==============
@@ -66,7 +117,7 @@ preds(2).b = -0.8;
 % individuals
 disp(' ')
 disp('Total Simulation time:')
-simTime = 10000
+simTime = 5000
 
 opt = staliro_options();
 
@@ -74,14 +125,17 @@ opt.optimization_solver = 'UR_Taliro';
 opt.runs = 3;
 opt.sa_params.n_tests = 5;%1000;
 opt.spec_space='Y';
-opt.interpolationtype = {'impulse'};
+opt.interpolationtype = {'pulse'};
+if ~strcmp(opt.interpolationtype{1},'pulse')
+    opt.SampTime = 1;
+end
 opt.n_workers = 1;
 opt.varying_cp_times = 1;
 opt.taliro = 'dp_t_taliro';
 %opt.dp_t_taliro_direction  = 'past';
-opt.falsification = 1;
+opt.falsification = 0;
 opt.black_box = 1;
-opt.SampTime = 1;
+
 opt.ur_generation.constrained = 1;
 opt.ur_generation.minDelay = 400;% delay in absolute real time.
 
@@ -105,20 +159,29 @@ display(['Minimum Robustness found in Run 2 = ',num2str(results.run(2).bestRob)]
 %% Graph
 for i=1:3
     [hs, rc] = systemsimulator(model, [], results.run(i).bestSample, simTime, input_range, cp_array);
-    NA3 = hs.STraj(:,1);
-    VP = hs.STraj(:,3);
-    T = hs.T;
-    IT = hs.InputSignal;
-    kept{i} = hs;    
     oo = dp_t_taliro(phi, preds,hs.STraj,T,[],[],[])
-    figure(i)
-    clf
-    subplot(2,1,1)
-    plot(T,NA3)
-    title(['NA3_',num2str(i)])
-    subplot(2,1,2)
-    plot(T,VP)
-    title(['VP_',num2str(i)])
+    %kept{i} = hs;    
+    YT = hs.STraj;
+    T = hs.T;    
+    titles = { 'NA1', 'NA2', 'NA3', 'Apace', 'Vpace', 'PA1', 'PA2'};
+    plotorder = [5,7,2,6,1,5];
+    nbsignals = length(plotorder);
+    ii=1;
+    for s=plotorder
+        subplot(nbsignals,1,ii)
+        plot(T,YT(:,s))
+        title(titles{s})
+        ii=ii+1;
+    end
+    fvp = find(YT(:,5));
+    fpa2 = find(YT(:,end));
+    fna2 = find(YT(:,2));
+    fpa1 = find(YT(:,6));
+    fna1 = find(YT(:,1));    
     
+    IT = hs.InputSignal;
+    figure
+    plot(T,IT)
+    title('Input signal')
 end
 save('results.mat','kept','-append')

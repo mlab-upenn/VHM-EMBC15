@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 load HM
 load PM_new
 
@@ -5,6 +6,7 @@ t=0;
 ntimeSteps = 5000;
 paceOut = zeros(ntimeSteps,2);
 senseOut = zeros(ntimeSteps,2);
+
 
 while t<ntimeSteps
     t=t+1;
