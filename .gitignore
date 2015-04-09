@@ -1,7 +1,7 @@
+code/ELT_simulink/slprj
 *.log
 *.aux
 *.bbl
-*/slprj/*
 *~
 # Windows image file caches
 Thumbs.db
