@@ -1,5 +1,102 @@
 \section{Heart and Pacemaker Basics}
 \label{basics}
+n this section, we review basic concepts related to the heart and its electrical conduction system which interacts with the pacemaker. In-depth material of cardiac electro-physiology can be found in \cite{fogoros}. 
 
+\subsection{Basics of Cardiac Electrophysiology Operation}
+The coordinated contraction of the heart is governed by its Electrical Conduction System (see \figref{conduction}). The Sinoatrial (SA) node, which is a collection of specialized tissue at the upper right atrium, spontaneously generates periodical electrical pulses that can cause muscle contraction. The SA node acts as the natural pacemaker of the heart. The electrical pulses first cause both atria to contract, forcing the blood into the ventricles. 
+The electrical conduction is then delayed at the Atrioventricular (AV) node, allowing the ventricles to fill fully. Finally, the fast-conducting His-Pukinje system spreads the electrical activation within both ventricles, causing simultaneous contraction of the ventricular muscles, and pumps the blood out of the heart. The electrical conduction system of the heart is a timed system and appropriate timing is key to proper heart rhythm.
+
+\begin{figure}
+  	\begin{center}
+	%\vspace{-10pt}
+    	\includegraphics[width=0.45\textwidth]{figures/egm.pdf}
+  	\end{center}
+	%\vspace{-20pt}
+	\caption{\small (a) Electrical Conduction System of the Heart and pacemaker leads location. (b) Electrical signal sensed from the pacemaker leads are converted to event markers (AS,VS). Pacemaker delivers electrical pacing (AP,VP) from corresponding leads when heart rate is slow.}
+	%\vspace{-20pt}
+	\label{fig:conduction}
+\end{figure}
+%\begin{figure}
+%\centering
+%
+%		\subfigure {
+%				\includegraphics[width=0.25\textwidth]{figs/conduction_fig_2a.pdf}
+%				\label{fig:conduction}
+%		} 
+%		\subfigure {	
+%			\includegraphics[width=0.2\textwidth]{figs/fig5(b).pdf}
+%			\label{fig:EGM}
+%		}
+%	%	\vspace{-10pt}
+%	\caption{(a) System Overview, (b) Basic 5 timing cycles of DDD pacemaker}
+%
+%\end{figure}
+Due to various factors such as aging and disease, the conduction properties of heart tissue may change. These changes often cause timing anomalies in heart rhythm, thus decreasing the blood pumping efficiency of the heart. These timing anomalies are referred to as arrhythmias, and are categorized into so-called \textsf{Tachycardia} and \textsf{Bradycardia}. Tachycardia feature undesirable fast heart rate which results in inefficient blood pumping. Bradycardia feature slow heart rate which results in insufficient blood supply. Bradycardia is due to failure of impulse generation with anomalies in the SA node, or failure of impulse propagation where the conduction from atria to the ventricles is delayed or blocked. 
+\subsection{Interfacing the Heart with the Pacemaker}
+Heart tissue can also be activated by external electrical pulses. %Bradycardia can be treated by providing electrical pulses when the heart rate is low. 
+\textsf{Implantable Pacemakers} have been developed to deliver timely electrical pulses to the heart to maintain an appropriate heart rate and Atrial-Ventricular synchrony. Implantable pacemakers normally have two leads fixed on the wall of the right atrium and the right ventricle respectively (\figref{conduction} (a)). These leads are capable of both sensing electrical activity in the heart tissue, emitting pacing signals into the tissue. Tissue activation near the leads is sensed by the leads, triggering Atrial Sense (AS) and Ventricular Sense (VS) events in the pacemaker (see \figref{conduction} (b)). Atrial Pacing (AP) and Ventricular Pacing (VP) are delivered if no sensed events occur within pre-specified deadlines. A dual chamber pacemaker only utilizes activation timing information for two small regions in the heart. The ``low-resolution" sensing of the pacemaker results in its limited knowledge of the current heart condition thus could lead to potential incorrect estimation of the heart's electrical activity and result in inappropriate therapies.
+
+In order to deal with different heart conditions, modern pacemakers can be programmed to operate in different modes. The modes are labeled using a three character system (e.g. DDD) by the Heart Rhythm Society \cite{fogoros}. The first character describes the pacing locations (i.e. atrium or ventricle or both), the second character describes the sensing locations, and the third character describes how the pacemaker software responds to sensing. For example, the dual-chamber DDD mode stands for sensing in both atrium and ventricle, and pacing both of them if needed. In this effort, we describe two of the most commonly used modes of pacemaker, the dual-chamber DDD mode, that paces both the atrium and the ventricle, senses both chambers, and sensing can both activate or inhibit further pacing. Similarly, the VDI mode paces only in the ventricle, senses both chambers, and inhibits pacing if event is sensed \cite{pacemaker}. During certain heart condition changes, the pacemaker has to switch between different modes to achieve better treatment. It is very important to ensure that the mode-switches are performed as intended, and no safety issues can occur during the transition between different modes.
+
+The coordinated contraction of the atria and the ventricles are governed by the electrical conduction system of the heart (\figref{conduction}). Despite the varieties of the cells, cells in the heart generate \emph{action potential} when an electrical potential is applied to them (\figref{act_pot}), and their action potentials share similar properties. The action potential can be divided into: \emph{Rest} period during which a new and normal action potential can be initialized, either by potential difference applied to the cell or by itself for pacemaker cells; \emph{Effective Refractory Period} (ERP) which is initialized by the depolarization of the cell, and during which no new action potential can be initialized; \emph{Relative Refractory Period} (RRP) during which a new but abnormal action potential can be initialized. In the VHM this behavior is captured using \textbf{node automaton} (\figref{node}). The timing periods described above are modeled as states with corresponding timers. 
+
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure*}[!t]
+\centering
+\vspace{-10pt}
+		\subfigure [\small]{
+		\includegraphics[width=0.3\textwidth]{figures/act_pot_new.pdf}
+		\label{fig:act_pot}
+		} 
+		\subfigure [\small] 
+		{	
+			\includegraphics[width=0.27\textwidth]{figures/node_automata.pdf}
+			\label{fig:node}
+		}
+		\subfigure [\small] 
+		{
+		\includegraphics[width=0.27\textwidth]{figures/path_automata.pdf}
+		\label{fig:path}
+		} 
+\label{fig:h_automatas}
+\vspace{-8pt}
+\caption{\small (a) Action potential recorded from ventricular tissue. The dashed lines show how action potential morphology changes when a stimulus is applied early to the tissue and how the corresponding timer values change.(b) Node automaton. (c) Path automaton}
+\vspace{-10pt}
+\end{figure*} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The electrical potential difference caused by the depolarization of one cell can trigger depolarization of the cells nearby. This propagation property is captured using \textbf{path automaton} (\figref{path}). So the electrical conduction system of the heart can be represented as conduction pathways. Since the refractory properties along a conduction pathway are governed by the tissue at both ends of the path \cite{josephson}, one conduction pathway can be represented as two node automata connected by a path automata. The electrical conduction system of the heart represented using node and path automata is shown in \figref{general_setup}. The timing properties of the system are modeled by the timed automata and the spatial properties of the system is kept by overlaying the automata onto a 2-D heart anatomy. The VHM is implemented in Simulink. We were able to use VHM to simulate different heart conditions in a closed-loop with the pacemaker model. Some representative heart conditions including (1) Wenckebach AV nodal response, (2) AV Nodal Reentry Tachycardia (AVNRT), (3) Atrial Flutter (AF), (4) Pacemaker mode-switch operation and (5) Pacemaker mediated tachycardia.
+
+The VHM誷 functional output has been validated by the director of cardiac electrophysiology in the Philadelphia VA Hospital and by electrophysiologists in the Hospital of the University of Pennsylvania. The model generates outputs (Electrograms) which matches the output of a real heart with same underlying heart condition when inputs (Programmed pacing) are applied to it. More detailed description of node and path automaton implementation and case studies can be found in our previous papers \cite{Jiang1}\cite{vhm_iccps11}\cite{embc10}.
+
+\Section{Pacemaker model}
+
+In order to show the capability of VHM in Implantable Cardiac Device Validation \& Verification, a simple pacemaker model is developed. Pacemakers operate in different modes and these are labeled using a three character system (e.g. xyz). The first position describes the pacing locations, the second location describes the sensing locations, and the third position describes how the pacemaker software responds to sensing. For example, the DDD mode paces both the atrium and ventricle (D), senses both (D), and sensing can both activate or inhibit further pacing (D). We developed a basic DDD pacemaker model according to  to the specification derived from \cite{challenge}.\\
+\textbf{1. Lower Rate Interval (LRI)}:
+The LRI interval starts at a ventricular sensed or paced event. The LRI interval is the longest interval between two ventricular events. 
+
+\textbf{2. Upper Rate Interval (URI)}:
+The URI interval defines the shortest interval between a ventricular event and a paced ventricular event
+
+\textbf{3. Atrial-Ventricular Interval (AVI)}:
+Ventricular pacing shall occur in the absence of a sensed ventricular event within the programmed AV delay when the time elapsed after the last ventricular event is between the programmed LRI and URI.
+
+\textbf{4. Ventricular Refractory Period (VRP)}:
+The VRP is the time interval following a ventricular event during which no ventricular sense (VS) can happen.
+
+\textbf{5. Post Ventricular Atrial Refractory Period (PVARP)}:
+The PVARP is the time interval following a ventricular event during which no atrial sense (AS) can happen.
+
+According to the five primary specifications of the basic DDD pacemaker, a Simulink model was designed using temporal logic. Each component corresponds to a particular specification and communicates with others using channels. A timing diagram is shown in \figref{timingPM}. This model can be easily translated into formal verification tool called UPPAAL for timing verification. More information about the implementation can be found in \cite{STTT13}. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[!b]
+\center
+\vspace{-10pt}
+\includegraphics[width=0.45\textwidth]{figures/PM_timers.pdf}
+\vspace{-10pt}
+\caption{Simulink design of path automata}
+\label{fig:timingPM}
+\end{figure}
 
 \input{testingObjectives}
