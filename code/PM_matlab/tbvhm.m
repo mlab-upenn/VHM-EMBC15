@@ -122,9 +122,9 @@ simTime = 10000
 opt = staliro_options();
 
 opt.optimization_solver = 'UR_Taliro';
-opt.runs = 3;
-opt.sa_params.n_tests = 5;%1000;
-opt.ur_params.n_tests = 15;%1000;
+opt.runs = 20;
+opt.sa_params.n_tests = 1000;
+opt.ur_params.n_tests = 1000;
 opt.spec_space='Y';
 opt.interpolationtype = {'pulse'};
 if ~strcmp(opt.interpolationtype{1},'pulse')
@@ -167,14 +167,14 @@ for i=1:3
     titles = { 'NA1', 'NA2', 'NA3', 'Apace', 'Vpace', 'PA1', 'PA2'};
     plotorder = [5,7,2,6,1];
     nbsignals = length(plotorder);
-    figure(i)
-    ii=1;
-    for s=plotorder
-        subplot(nbsignals+1,1,ii)
-        plot(T,YT(:,s))
-        title(titles{s})
-        ii=ii+1;
-    end
+    %figure(i)
+    %ii=1;
+    %for s=plotorder
+    %    subplot(nbsignals+1,1,ii)
+    %    plot(T,YT(:,s))
+    %    title(titles{s})
+    %    ii=ii+1;
+    %end
     
     IT = hs.InputSignal;
     subplot(nbsignals+1,1,nbsignals+1)
