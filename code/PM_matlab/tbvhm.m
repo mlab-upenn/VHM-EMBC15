@@ -122,7 +122,7 @@ disp('Total Simulation time:')
 simTime = 5000
 
 opt = staliro_options();
-opt.optimization_solver = 'UR_Taliro';
+opt.optimization_solver = 'SA_Taliro';
 opt.runs                = 3;
 opt.sa_params.n_tests   = 5;%1000;
 opt.ur_params.n_tests   = 5;%1000;
@@ -136,7 +136,7 @@ opt.taliro = 'dp_t_taliro';
 opt.falsification = 0;
 opt.black_box = 1;
 
-opt.constrained_generation.enabled = 0;
+opt.constrained_generation.enabled = 1;
 opt.constrained_generation.minSeparation = 400;
 opt.constrained_generation.distribution = 'uniform';
 opt.constrained_generation.sort = 0;
