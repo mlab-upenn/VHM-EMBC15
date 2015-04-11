@@ -65,10 +65,12 @@ cp_array = 10*ones(1,size(input_range,1));
 disp(' ')
 disp('The specification:')
 phiSimple = '[] ((na3 || vp) -> []_[0,500] !(na3||vp))';
-
-phiELT = '!( <>(vp /\ (vp -> <>(pa2 /\ pa2 -> <>(na2 /\ na2 -> <>(pa1 /\ pa1 -> <>(na1 /\ na1 -> <>(vp)) )) )) ) /\ (vp -> []_[1,600]!vp) )';
-
-phi = phiELT
+phiSequence  =  '(<> (vp /\ (vp -> <>(pa2 /\ (pa2 -> <>(na2 /\ (na2 -> <>(pa1 /\ (pa1 -> <>(na1 /\ (na1 -> <>(vp) )) )) )) )) )))';
+phiDelayWide = '( (vp /\ X(!vp)) -> (<>_[1,600]vp) )';
+phiDelay     = '( vp             -> (<>_[1,600]vp) )';
+phiELTWidePulses = ['!(',phiSequence, ' /\ ', phiDelayWide, ')'];
+phiELT           = ['!(',phiSequence, ' /\ ', phiDelay, ')'];
+phi = phiELTWidePulses
 
 % Signals = NA1, NA2, NA3, Apace, Vpace, PA1, PA2
 preds(1).str='vp';
@@ -117,14 +119,13 @@ preds(7).b = [-2.8; 3.2];
 % individuals
 disp(' ')
 disp('Total Simulation time:')
-simTime = 500
+simTime = 5000
 
 opt = staliro_options();
-
-opt.optimization_solver = 'SA_Taliro';
-opt.runs = 3;
-opt.sa_params.n_tests = 5;%1000;
-opt.ur_params.n_tests = 10;%1000;
+opt.optimization_solver = 'UR_Taliro';
+opt.runs                = 3;
+opt.sa_params.n_tests   = 5;%1000;
+opt.ur_params.n_tests   = 5;%1000;
 opt.spec_space='Y';
 opt.interpolationtype = {'pulse'};
 opt.SampTime = 0.2;
@@ -135,8 +136,8 @@ opt.taliro = 'dp_t_taliro';
 opt.falsification = 0;
 opt.black_box = 1;
 
-opt.constrained_generation.enabled = 1;
-opt.constrained_generation.minSeparation = 40;
+opt.constrained_generation.enabled = 0;
+opt.constrained_generation.minSeparation = 400;
 opt.constrained_generation.distribution = 'uniform';
 opt.constrained_generation.sort = 0;
 opt.constrained_generation.percentageDisplacement = 0.1;
@@ -163,6 +164,7 @@ for i=1:3
     [hs, rc] = systemsimulator(model, [], results.run(i).bestSample, simTime, input_range, cp_array);
     oo = dp_t_taliro(phi, preds,hs.STraj,hs.T,[],[],[])
     kept{i} = hs;    
+    %plotsignals(hs,i);
     YT = hs.STraj;
     T = hs.T;    
 %     fvp  = find(YT(:,5)==1); 
@@ -172,23 +174,23 @@ for i=1:3
 %     fna1 = find(YT(:,1));
     % Detect rising edges
     fvp0  = YT(1:end-1,5)==1; fvp1 = (YT(2:end,5)==1); 
-    fvp = find(fvp0==0 & fvp1==1); 
+    fvp = find(fvp0==0 & fvp1==1)+1; 
     if (fvp0(1)==1 && fvp1(1)==0); fvp(1) = 1; end
     
     fpa20  = YT(1:end-1,7)==3; fpa21 = (YT(2:end,7)==3); 
-    fpa2 = find(fpa20==0 & fpa21==1); 
+    fpa2 = find(fpa20==0 & fpa21==1)+1; 
     if (fpa20(1)==1 && fpa21(1)==0); fpa2(1) = 1; end
     
     fna20  = YT(1:end-1,2)==1; fna21 = (YT(2:end,2)==1); 
-    fna2 = find(fna20==0 & fna21==1); 
+    fna2 = find(fna20==0 & fna21==1)+1; 
     if (fna20(1)==1 && fna21(1)==0); fna2(1) = 1; end
     
     fpa10  = YT(1:end-1,6)==3; fpa11 = (YT(2:end,6)==3); 
-    fpa1 = find(fpa10==0 & fpa11==1); 
+    fpa1 = find(fpa10==0 & fpa11==1)+1; 
     if (fpa10(1)==1 && fpa11(1)==0); fpa1(1) = 1; end
     
     fna10  = YT(1:end-1,1)==1; fna11 = (YT(2:end,1)==1); 
-    fna1 = find(fna10==0 & fna11==1); 
+    fna1 = find(fna10==0 & fna11==1)+1; 
     if (fna10(1)==1 && fna11(1)==0); fna1(1) = 1; end
        
     
