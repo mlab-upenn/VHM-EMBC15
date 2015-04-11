@@ -197,20 +197,20 @@ for i=1:3
     titles = { 'NA1', 'NA2', 'NA3', 'Apace', 'Vpace', 'PA1', 'PA2'};
     plotorder = [5,7,2,6,1];
     nbsignals = length(plotorder);
-    %figure(i)
+    figure(i)
     ii=1;
-    %for s=plotorder
-      %  subplot(nbsignals+1,1,ii)
-     %   plot(T,YT(:,s))
-      % title(titles{s})
-    %    ii=ii+1;
-    %end
-    %subplot(nbsignals+1,1,2); 
-    %hold on;
-    %plot(T(fpa2),YT(fpa2,7),'r*')
-    %subplot(nbsignals+1,1,4); 
-    %hold on;
-    %plot(T(fpa1),YT(fpa1,6),'r*')
+    for s=plotorder
+       subplot(nbsignals+1,1,ii)
+       plot(T,YT(:,s))
+      title(titles{s})
+       ii=ii+1;
+    end
+    subplot(nbsignals+1,1,2); 
+    hold on;
+    plot(T(fpa2),YT(fpa2,7),'r*')
+    subplot(nbsignals+1,1,4); 
+    hold on;
+    plot(T(fpa1),YT(fpa1,6),'r*')
     
     IT = hs.InputSignal;
     subplot(nbsignals+1,1,nbsignals+1)

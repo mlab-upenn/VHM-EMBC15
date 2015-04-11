@@ -9,6 +9,11 @@
 \IEEEoverridecommandlockouts                              % This command is only needed if 
                                                           % you want to use the \thanks command
 
+\newcommand{\ub}{\bar{u}}
+\newcommand{\yb}{\bar{y}}
+\newcommand{\wb}{\bar{w}}
+\newcommand{\Hc}{\mathcal{H}}
+
 \overrideIEEEmargins       
 \usepackage{todonotes}                              
 \RequirePackage{graphicx}
@@ -25,18 +30,13 @@
 %\usepackage{amssymb}  % assumes amsmath package installed
 
 \title{\LARGE \bf
-Preparation of Papers for IEEE Sponsored Conferences \& Symposia*
+Testing pacemakers with a virtual heart model
 }
 
-
-\author{Albert Author$^{1}$ and Bernard D. Researcher$^{2}$% <-this % stops a space
-\thanks{*This work was not supported by any organization}% <-this % stops a space
-\thanks{$^{1}$Albert Author is with Faculty of Electrical Engineering, Mathematics and Computer Science,
-        University of Twente, 7500 AE Enschede, The Netherlands
-        {\tt\small albert.author@papercept.net}}%
-\thanks{$^{2}$Bernard D. Researcheris with the Department of Electrical Engineering, Wright State University,
-        Dayton, OH 45435, USA
-        {\tt\small b.d.researcher@ieee.org}}%
+\author{Albert Author$^{1}$ and Bernard D. Researcher$^{1}$% <-this % stops a space
+\thanks{*This work was partially supported by ???}% <-this % stops a space
+\thanks{$^{1}$The Electrical and Systems Engineering Department, University of Pennsylvania, Philadelphia, U.S.A.
+        {\tt\small \{habbas,zhihaoj,rahulm\}@seas.upenn.edu}}%
 }
 
 
@@ -49,12 +49,16 @@ Preparation of Papers for IEEE Sponsored Conferences \& Symposia*
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{abstract}
+\input{outline}
 \input{introduction}
 %\input{basics}
 \input{openloop}
 \input{closedloop}
 \input{experiments}
 
+
+\bibliographystyle{abbrv}
+\bibliography{CDC2015,conformance,conformanceMEMOCODE,HSCC2015_CompositionalConf,fainekos_bibrefs,SAREDnonlinear_2014}  
 
 
 
