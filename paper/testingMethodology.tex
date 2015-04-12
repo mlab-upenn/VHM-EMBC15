@@ -1,12 +1,17 @@
 \subsection{Testing Methodology}
 \label{testingMethodology}
-high level graph
+
 \begin{figure}[!t]
 \centering
-		%\includegraphics[width=0.9  \textwidth]{figs/probes.png}
-		
-%\vspace{-10pt}
-\caption{\small Block diagram of the testing methodology}
-\label{fig:egm}
-%\vspace{-15pt}
+\includegraphics[scale=0.2]{placeHolder.pdf}
+\caption{\small Requirement-guided closed-loop testing methodology}
+\label{fig:reqGuidedTesting}
 \end{figure} 
+
+We now describe how we can generate PVC waveforms automatically in a requirements-guided manner.
+
+
+It must be stressed that the interpretation of closed-loop testing results (bug or feature of the pacemaker?) depends on the specific violating behaviors that are found.
+Some will be determined to be bugs. 
+Others will be determined to be undesirable but necessary behaviors.
+This is because specifying `safe' behavior is difficult for something as complex as the heart.

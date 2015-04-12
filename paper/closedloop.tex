@@ -1,14 +1,31 @@
 \section{Closed-loop Testing of Pacemaker}
 \label{closedloop}
-benefits, challenges
 \begin{figure}[!t]
-\centering
-\includegraphics[scale=0.2]{placeHolder.pdf}		
-%\vspace{-10pt}
-\caption{\small Heart-on-a-Chip platform, showing the pacemaker, the microcontroller, and the monitors.}
-\label{fig:egm}
+	\centering
+	\includegraphics[scale=0.2]{placeHolder.pdf}		
+	\caption{\small Heart-on-a-Chip platform, showing the pacemaker, the microcontroller, and the monitors.}
+	\label{fig:hoc}
 \end{figure} 
 
-\input{testingVsVerification}
-%\input{testVsVerif}
+In \emph{closed-loop testing}, the test setup is the same as the setup for live operation (see Fig.~\ref{fig:liveSetup}). 
+That is, the DUT is connected to the plant, and the tester controls the external disturbances, and chooses initial values for the states and parameters.
+The inputs to the DUT are provided by the plant, and don't need to be pre-programmed by the designer or validator.
+
+Since we don't have access to real human hearts for testing, we have developed a \emph{Virtual Heart Model (VHM)}, which simulates the \emph{timing aspects} of the operation of a human heart, and ignores other physiological details.
+In our case, the external disturbances controlled by the tester consist of the PVC events (we don't generate any PAC events), and the initial states and parameters are initial settings for the pacemaker's programmed values and various other parameters. 
+See Fig.~\ref{fig:reqGuidedTesting}.
+
+Before describing the advantages of closed-loop testing, we introduce the Heart-on-a-Chip (HoC) platform, which will be used for the development of closed-loop testers.
+See Fig.~\ref{fig:hoc}.
+\todo[inline]{more...}
+
+How does closed-loop testing compare to the ideal state of affairs depicted in Section~\ref{testingObjectives}?
+\begin{itemize}
+	\item Choice of inputs: because a VHM provides the inputs to the pacemaker, we know that $A_{CL} \subset A_\Hc$, where $A_{CL}$ is the set of strings $\yb$ fed to the pacemaker in a closed-loop setup. 
+	Thus, there is no risk of testing irrelevant scenarios\footnote{Of course, this ultimatley depends on the quality of the VHM.}
+	This leaves open, of course, the question of how the tester chooses the disturbance inputs $\wb$. The answer is provided in Section \ref{testingMethodology}, but briefly, the $\wb$ choice is automatic and guided by the specification that we are testing, and is asymptotically complete (i.e. in the limit, $A_{CL} = A_\Hc$).
+	\item Criterion of correctness: because we have a VHM, we can express correctness \emph{as a property of the heart's behavior}, and not of the pacemaker alone. 
+	Thus we can evaluate what truly matters: is the heart (as modeled by the VHM) displaying unsafe or undesirable behavior?
+\end{itemize}
+
 \input{testingMethodology}
