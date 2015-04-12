@@ -65,3 +65,5 @@ code/ELT_simulink/slprj/_sfprj/case2mod_new/_self/sfun/info/chart1_zHa8gXAiJoutU
 code/ELT_simulink/slprj/_sfprj/case2mod_new/_self/sfun/info/binfo.mat
 *.tcp
 paper/main.tps
+paper/main.pdf
+*.blg
