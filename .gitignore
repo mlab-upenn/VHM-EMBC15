@@ -63,3 +63,5 @@ code/ELT_simulink/slprj/_sfprj/case2mod_new/SimpleModeling/sfun/src/rtwtypeschks
 code/ELT_simulink/slprj/_sfprj/case2mod_new/_self/sfun/info/chart7_zHa8gXAiJoutUGnyluwjhE.mat
 code/ELT_simulink/slprj/_sfprj/case2mod_new/_self/sfun/info/chart1_zHa8gXAiJoutUGnyluwjhE.mat
 code/ELT_simulink/slprj/_sfprj/case2mod_new/_self/sfun/info/binfo.mat
+*.tcp
+paper/main.tps
