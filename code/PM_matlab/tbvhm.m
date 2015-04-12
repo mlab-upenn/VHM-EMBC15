@@ -44,7 +44,7 @@ disp('The constraints on the input signals PVC and PAC defined as a hypercube:')
 input_range = [0 1]
 disp(' ')
 disp('The number of control points for the input signal determines how many pulses there are:')
-cp_array = 10*ones(1,size(input_range,1));
+cp_array = 2*ones(1,size(input_range,1));
 
 
 %% =================
@@ -119,25 +119,26 @@ preds(7).b = [-2.8; 3.2];
 % individuals
 disp(' ')
 disp('Total Simulation time:')
-simTime = 5000
+simTime = 10000
 
 opt = staliro_options();
 opt.optimization_solver = 'SA_Taliro';
 opt.runs                = 3;
-opt.sa_params.n_tests   = 5;%1000;
-opt.ur_params.n_tests   = 5;%1000;
-opt.spec_space='Y';
-opt.interpolationtype = {'pulse'};
-opt.SampTime = 0.2;
-opt.n_workers = 1;
-opt.varying_cp_times = 1;
+n_tests                 = 5;
+opt.sa_params.n_tests   = n_tests;
+opt.ur_params.n_tests   = n_tests;
+opt.spec_space          = 'Y';
+opt.interpolationtype   = {'pulse'};
+opt.SampTime            = 0.2;
+opt.n_workers           = 1;
+opt.varying_cp_times    = 1;
 opt.taliro = 'dp_t_taliro';
 %opt.dp_t_taliro_direction  = 'past';
 opt.falsification = 0;
 opt.black_box = 1;
 
 opt.constrained_generation.enabled = 1;
-opt.constrained_generation.minSeparation = 400;
+opt.constrained_generation.minSeparation = 0.5*simTime;
 opt.constrained_generation.distribution = 'uniform';
 opt.constrained_generation.sort = 0;
 opt.constrained_generation.percentageDisplacement = 0.1;
@@ -148,10 +149,21 @@ global pace_param;
 load HM
 load PM_new
 pace_param.P_det = 0;
+for r=1:size(node_table,1)
+    for c = 1:size(node_table,2)
+        xNode = [xNode;node_table{r,c}];
+    end
+end
+for r=1:size(path_table,1)
+    for c = 1:size(path_table,2)
+        xPath = [xPath;path_table{r,c}];
+    end
+end
+x0 = [xNode;xPath];
 
 disp(' ')
 tic
-results = staliro(model,init_cond,input_range,cp_array,phi, preds,simTime,opt);
+[results, history] = staliro(model,init_cond,input_range,cp_array,phi, preds,simTime,opt);
 toc
 save('results.mat')
 
@@ -164,73 +176,7 @@ for i=1:3
     [hs, rc] = systemsimulator(model, [], results.run(i).bestSample, simTime, input_range, cp_array);
     oo = dp_t_taliro(phi, preds,hs.STraj,hs.T,[],[],[])
     kept{i} = hs;    
-    %plotsignals(hs,i);
-    YT = hs.STraj;
-    T = hs.T;    
-%     fvp  = find(YT(:,5)==1); 
-%     fpa2 = find(YT(:,7)==3);
-%     fna2 = find(YT(:,2));
-%     fpa1 = find(YT(:,6)==3);
-%     fna1 = find(YT(:,1));
-    % Detect rising edges
-    fvp0  = YT(1:end-1,5)==1; fvp1 = (YT(2:end,5)==1); 
-    fvp = find(fvp0==0 & fvp1==1)+1; 
-    if (fvp0(1)==1 && fvp1(1)==0); fvp(1) = 1; end
-    
-    fpa20  = YT(1:end-1,7)==3; fpa21 = (YT(2:end,7)==3); 
-    fpa2 = find(fpa20==0 & fpa21==1)+1; 
-    if (fpa20(1)==1 && fpa21(1)==0); fpa2(1) = 1; end
-    
-    fna20  = YT(1:end-1,2)==1; fna21 = (YT(2:end,2)==1); 
-    fna2 = find(fna20==0 & fna21==1)+1; 
-    if (fna20(1)==1 && fna21(1)==0); fna2(1) = 1; end
-    
-    fpa10  = YT(1:end-1,6)==3; fpa11 = (YT(2:end,6)==3); 
-    fpa1 = find(fpa10==0 & fpa11==1)+1; 
-    if (fpa10(1)==1 && fpa11(1)==0); fpa1(1) = 1; end
-    
-    fna10  = YT(1:end-1,1)==1; fna11 = (YT(2:end,1)==1); 
-    fna1 = find(fna10==0 & fna11==1)+1; 
-    if (fna10(1)==1 && fna11(1)==0); fna1(1) = 1; end
-       
-    
-    titles = { 'NA1', 'NA2', 'NA3', 'Apace', 'Vpace', 'PA1', 'PA2'};
-    plotorder = [5,7,2,6,1];
-    nbsignals = length(plotorder);
-    figure(i)
-    ii=1;
-    for s=plotorder
-       subplot(nbsignals+1,1,ii)
-       plot(T,YT(:,s))
-      title(titles{s})
-       ii=ii+1;
-    end
-    subplot(nbsignals+1,1,2); 
-    hold on;
-    plot(T(fpa2),YT(fpa2,7),'r*')
-    subplot(nbsignals+1,1,4); 
-    hold on;
-    plot(T(fpa1),YT(fpa1,6),'r*')
-    
-    IT = hs.InputSignal;
-    subplot(nbsignals+1,1,nbsignals+1)
-    plot(T,IT)
-    title('Input signal')    
-    
-    for jj=2:length(fvp)
-        lend = fvp(jj-1);
-        rend = fvp(jj);
-        if T(rend) - T(lend) <= 600
-            disp(['Difference ', num2str(i), ' at pulse ', num2str(jj),' is ',num2str( T(rend) - T(lend))])
-            btwPA2 = find(fpa2 <= rend & fpa2 >= lend);
-            btwNA2 = find(fna2 <= rend & fna2 >= lend);
-            btwPA1 = find(fpa1 <= rend & fpa1 >= lend);
-            btwNA1 = find(fna1 <= rend & fna1 >= lend);
-            if ~isempty(btwPA2) && ~isempty(btwPA1) && ~isempty(btwNA2) && ~isempty(btwNA1) 
-                disp(['Check figure ',num2str(i) ' between ', num2str(T(lend)), ' and ' , num2str(T(rend))])
-            end
-        end
-    end
+    plotELTseekers(hs,i);
     
 end
 save('results.mat','kept','-append')

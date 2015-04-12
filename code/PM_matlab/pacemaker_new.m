@@ -224,7 +224,7 @@ if pace_param.VT>=pace_param.TLRI
     v_p=1;
 end
 %%TODO: fix this issue.
-                                                                                %%%%this statement causes issues   %%this statement helps to ensure it paces only once during AEI
+%%%%this statement causes issues   %%this statement helps to ensure it paces only once during AEI
 if pace_param.VSP==0 && pace_param.AT>=pace_param.TAVI && pace_param.A_det==1 && pace_param.VT>=pace_param.TURI && pace_param.P_det == 0
     v_p=1;
 end
