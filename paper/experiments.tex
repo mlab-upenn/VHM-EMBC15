@@ -23,23 +23,19 @@ The specification was violated by the execution shown in Fig. \ref{fig:bug8_kept
 \caption{A PVC pattern that causes a premature ventricular pacing.}
 \label{fig:bug8_kept1}
 \end{figure}
-Upon investigating the reasons for this violation, it was concluded that the Ventricular Safety Pacing (VSP) feature of our model was at fault: the VSP is a way to prevent the consequences of AV crosstalk, namely, self-inhibition. 
-When the pacemaker senses a ventricular event during the VSP interval (but past the PAVB interval), it schedules a VP to be executed at the end of the VSP.
-In this experiment, a PVC disturbance that occurred past the PAVB, but still within the VSP, provoked the ventricular event that led to the early VP.
-
-In this case, the violating trace is due to a desired feature of the pacemaker (preventing self-inhibition).
+Upon investigating the reasons for this violation, it was concluded that one of the noise filter post-atrial ventricular blocking (PAVB) designed to avoid crosstalk between channels caused the problem.  A PVC happened shortly after an atrial sense (AS) which fell into the PAVB period and were ignored. Due to the limited sensing capability the pacemaker cannot distinguish noise with a valid input which happened at a rare time.
 Thus, the designer and physician must decide whether this is an acceptable case, or the pacemaker needs to be adjusted (if at all possible) to prevent this from happening (while maintaining the VSP safety feature).
 
 b) \emph{Finding harmful heart behavior}: In this experiment, we tested the closed loop to see if the pacemaker could lead the heart into a harmful condition known as Endless Loop Tachycardia (ELT).
 %
 The heart has one intrinsic conduction pathway from atria to ventricles, namely from the SA node to the ventricles via the AV node and His bundle.
-The DDD pacemaker introduces another, virtual, pathway between the atrial lead and the ventricular lead.
+The AVI period of the DDD pacemaker introduces another, virtual, pathway between the atrial lead and the ventricular lead.
 See Fig.~\ref{fig:nodesandPM}.
-Together, these form a closed circuit which can cause the heart to beat incessantly at a fixed high rate.
-Specifically, if a PVC event is sensed by the pacemaker, it triggers V-A conduction along the intrinsic pathway, 
+If a PVC happens shortly after a normal A-to-V conduction, the signal would go around the closed circuit formed by the heart and the pacemaker, inhibiting intrinsic heart signals and causing the heart to beat at a fixed high rate.
+First, the PVC triggers V-A conduction along the intrinsic pathway, 
 which in turn triggers Atrial Sense (AS). 
 The pacemaker will then pace the ventricle (issue a VP) after TAVI ms according to its A-V synchrony function. 
-This VP acts as the catalyst for another V-A conduction, and so on.
+This VP then triggers another V-A conduction, and so on.
 The conduction loop is then formed and the VP-AS pattern will persist if no actions are taken.
 The heart rate is kept as high as the upper rate limit of the pacemaker since the cycle length of the conduction loop is very short. 
 ELT is a harmful condition since a fast fixed heart rate that will cause inefficient pumping of blood.
