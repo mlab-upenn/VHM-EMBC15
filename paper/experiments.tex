@@ -2,28 +2,18 @@
 \label{experiments}
 
 a) \emph{Debugging the pacemaker}: As an illustration of how a Virtual Heart Model (VHM) can be used to debug a pacemaker, we give a simple example of a pacemaker model in Simulink, connected to a VHM in Simulink as well. 
-The pacemaker and VHM models are shown in Fig.~\ref{fig:simulinkModels}.
-\begin{figure}[tb]
-	\centering
-	\includegraphics[scale=0.2]{placeHolder.pdf}
-	\caption{Simulink models of heart and pacemaker.}
-	\label{fig:simulinkModels}
-\end{figure}
-No open-loop testing was conducted on the pacemaker model.
-However, 
-The requirement given to the tester was that if a PVC or $V_{sense}$ or $V_{pace}$ occur, then the next $V_{pace}$ should not occur before 500ms. 
+No open-loop testing was conducted on this pacemaker model.
+The requirement given to the tester was that if a PVC or VS or VP occur, then the next VP should not occur before 500ms. 
 \todo[inline]{ZJ : why is this a requirement of good behavior?}
 The specification-guided testing methodology outlined in Section \ref{closedloop} quickly found a PVC disturbance waveform that caused the closed loop to violate this specification (fewer than 10 tests).
 Debugging revealed that the pacemaker model was missing the behavior that caused it to reset the Upper Rate Interval to its default value after every VS event.
 
 For the next two experiments, we used a pacemaker model that had been open-loop tested to satisfy a number of specifications from the Boston Scientific Challenge \cite{challenge}.
-\todo[inline]{ZJ, RM: is this last stmt true?}
 
 b) \emph{Exploring behavior}: In this experiment, we set a minimum delay of 400ms between PVC pulses, and tried to falsify the following specification:
 ``If either Node3 depolarizes because of path conduction or a VP is issued, a minimum of 500ms must pass before the next VP".
 \todo[inline]{ZJ :why is this a requirement of good behavior?s}
 Note that the pacemaker can not distinguish between a VS caused by a PVC and a VS caused by path conduction.
-\todo[inline]{ZJ : cite}
 Thus we need access to the heart model to test this specification, and this can only happen in a closed-loop setting.
 
 The specification was violated by the waveform shown in Fig. \ref{fig:bug8_kept1}.
