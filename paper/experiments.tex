@@ -8,15 +8,14 @@
 %The specification-guided testing methodology outlined in Section \ref{closedloop} quickly found a PVC disturbance waveform that caused the closed loop to violate this specification (fewer than 10 tests).
 %Debugging revealed that the pacemaker model was missing the behavior that caused it to reset the Upper Rate Interval to its default value after every VS event.
 
-For the following two experiments, we used a pacemaker model that had been open-loop tested to satisfy a number of specifications from the Boston Scientific Challenge \cite{challenge}.
+For the following two experiments, the pacemaker model is evaluated against two physiological requirements.
 
 a) \emph{Exploring behavior}: In this experiment, we set a minimum delay of 400ms between PVC pulses, and tried to falsify the following specification:
-``If either teh ventricle depolarizes because of path conduction or a VP is issued, a minimum of 500ms must pass before the next VP".
-\todo[inline]{ZJ :why is this a requirement of good behavior?s}
-Note that the pacemaker can not distinguish between a VS caused by a PVC and a VS caused by path conduction.
-Thus we need access to the heart model to test this specification, and this can only happen in a closed-loop setting.
+``The interval between an activation of the ventricle node to a ventricular pacing (VP) should be longer than 500ms".
+This specification is designed to identify closed-loop execution traces in which the pacemaker is pacing the heart too fast. %Note that the pacemaker can not distinguish between a VS caused by a PVC and a VS caused by path conduction.
+%Thus we need access to the heart model to test this specification, and this can only happen in a closed-loop setting.
 
-The specification was violated by the waveform shown in Fig. \ref{fig:bug8_kept1}.
+The specification was violated by the execution shown in Fig. \ref{fig:bug8_kept1}.
 % This comes from bug8_kept1
 \begin{figure}[tb]
 \centering
