@@ -66,10 +66,19 @@ The advantages of the proposed specification-guided closed-loop testing approach
 \label{table:CLoverOL}
 \end{table*}
 
+\begin{figure}[t]
+\centering
+\includegraphics[scale=0.4]{figures/cone}
+\caption{The space of closed-loop inputs to the pacemaker is constrained by the VHM and is thus smaller than the open-loop space.}
+\label{fig:cone}
+\end{figure}
+
 \begin{itemize}
 	\item Choice of inputs: because a heart model provides the input traces to the pacemaker, we know that only relevant test cases will be generated and fed to the pacemaker. 
 	That is, only traces that the pacemaker may actually see during live operation are fed to it during testing. 
 	\footnote{Of course, this ultimately depends on the quality of the VHM.}
+	Compare this to open-loop testing where theoretically, the space of open-loop tests is much larger since nothing constrains the inputs, as illustrated in Fig.~\ref{fig:cone}.
+	It is difficult if not impossible to reason a priori about how the heart will constrain the pacemaker's inputs, especially for \emph{deep} behaviors that take a long time to occur.	
 	Moreover, because the tester produces the tests systematically, we are guaranteed to find violating behavior if it exists.
 	\item Criterion of correctness: because we have a VHM, we can express correctness \emph{as a property of the heart's behavior}, and not of the pacemaker alone. 
 	Thus we can evaluate what truly matters: is the heart (as modeled by the VHM) displaying unsafe or undesirable behavior?
