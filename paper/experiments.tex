@@ -23,7 +23,9 @@ The specification was violated by the execution shown in Fig. \ref{fig:bug8_kept
 \caption{A PVC pattern that causes a premature ventricular pacing.}
 \label{fig:bug8_kept1}
 \end{figure}
-Upon investigating the reasons for this violation, it was concluded that one of the noise filter post-atrial ventricular blocking (PAVB) designed to avoid crosstalk between channels caused the problem.  A PVC happened shortly after an atrial sense (AS) which fell into the PAVB period and were ignored. Due to the limited sensing capability the pacemaker cannot distinguish noise with a valid input which happened at a rare time.
+Upon investigating the reasons for this violation, it was concluded that one of the noise filter post-atrial ventricular blocking (PAVB) designed to avoid crosstalk between channels caused the problem.  
+A PVC happened shortly after an atrial sense (AS) which fell into the PAVB period and was ignored. 
+Due to its limited sensing capability the pacemaker cannot distinguish noise from a valid input which happened at a rare time.
 Thus, the designer and physician must decide whether this is an acceptable case, or the pacemaker needs to be adjusted (if at all possible) to prevent this from happening (while maintaining the VSP safety feature).
 
 b) \emph{Finding harmful heart behavior}: In this experiment, we tested the closed loop to see if the pacemaker could lead the heart into a harmful condition known as Endless Loop Tachycardia (ELT).
