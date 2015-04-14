@@ -32,7 +32,7 @@ The tester itself is a requirements-guided automatic test generation algorithm, 
 This testing algorithm has been implemented in the tool S-Taliro \cite{AnnapureddyLFS11tacas}, and has been used in other medical applications like the analysis of insulin infusion pumps schedules \cite{SankaranarayananF2012cmsb}.
 The operation of the tester is as follows: we provide S-Taliro with a specification that the pacemaker+heart closed loop must satisfy,
 e.g., ``there should be a minimum delay of 500ms between VP events''.
-S-Taliro iteratively tries to find a test (i.e., a PVC waveform or pre-determined duration) such that the resulting closed loop behavior \emph{violates} the specification.
+S-Taliro iteratively tries to find a test (i.e., a PVC waveform of pre-determined duration) such that the resulting closed loop behavior \emph{violates} the specification.
 S-Taliro does this by iterating the following process: it generates a test, and observes the output waveform from the closed loop and calculates the \emph{the degree} to which it satisfies the specification or not.
 This degree is then used to choose the next test to apply. 
 It can be shown that if the system can exhibit a behavior that violates the specification, then this iterative process converges to a test that will provoke this incorrect behavior \cite{AbbasF_HybridSA12}. 
@@ -60,7 +60,9 @@ The advantages of the proposed requirements-guided closed-loop testing approach 
 	\\ 
 	\hline Choice of tests & Tests = input traces to pacemaker.  & Tests = traces of external disturbances, 
 	\\
-	                & Manually chosen.  & like PVC and PAC. Automatically selected by S-Taliro.
+	                & Manually chosen.  & like PVC and PAC. Automatically selected by 
+	\\
+	                 &                   & S-Taliro.
 	\\
 	\hline 
 \end{tabular}
